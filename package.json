@@ -1,0 +1,61 @@
+{
+  "name": "mean-seed",
+  "version": "1.0.0",
+  "description": "Projeto base configurado para novos projetos com MEAN",
+  "main": "back/bin/www",
+  "scripts": {
+    "prestart": "gulp",
+    "start": "nodemon back/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ibanheiz/mean-seed"
+  },
+  "keywords": [
+    "mean-seed",
+    "mean",
+    "mongodb",
+    "express",
+    "angular",
+    "nodejs"
+  ],
+  "author": "Nicolas Ibanheiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ibanheiz/mean-seed/issues"
+  },
+  "homepage": "https://github.com/Ibanheiz/mean-seed",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "bower": "^1.3.12",
+    "compression": "^1.2.0",
+    "connect-multiparty": "^1.2.5",
+    "cookie-parser": "^1.3.3",
+    "errorhandler": "^1.2.0",
+    "express": "^4.9.5",
+    "express-load": "^1.1.14",
+    "express-session": "^1.10.4",
+    "helmet": "^0.7.0",
+    "jade": "^1.8.1",
+    "method-override": "^2.2.0",
+    "mongoose": "^3.8.19",
+    "morgan": "^1.3.2",
+    "nodemailer": "^1.3.0",
+    "serve-favicon": "^2.1.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.4.1",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-jshint": "^1.8.5",
+    "gulp-less": "^1.3.6",
+    "gulp-livereload": "^3.6.0",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.2",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1"
+  }
+}
