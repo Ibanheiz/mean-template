@@ -1,0 +1,34 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.7.3
+3 info using node@v0.10.36
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart mean-seed@1.0.0
+6 verbose unsafe-perm in lifecycle true
+7 info mean-seed@1.0.0 Failed to exec prestart script
+8 verbose stack Error: mean-seed@1.0.0 prestart: `gulp`
+8 verbose stack Exit status 1
+8 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+8 verbose stack     at EventEmitter.emit (events.js:98:17)
+8 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+8 verbose stack     at ChildProcess.emit (events.js:98:17)
+8 verbose stack     at maybeClose (child_process.js:766:16)
+8 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:833:5)
+9 verbose pkgid mean-seed@1.0.0
+10 verbose cwd /home/projetos/mean-seed
+11 error Linux 3.13.0-46-generic
+12 error argv "node" "/usr/local/bin/npm" "start"
+13 error node v0.10.36
+14 error npm  v2.7.3
+15 error code ELIFECYCLE
+16 error mean-seed@1.0.0 prestart: `gulp`
+16 error Exit status 1
+17 error Failed at the mean-seed@1.0.0 prestart script 'gulp'.
+17 error This is most likely a problem with the mean-seed package,
+17 error not with npm itself.
+17 error Tell the author that this fails on your system:
+17 error     gulp
+17 error You can get their info via:
+17 error     npm owner ls mean-seed
+17 error There is likely additional logging output above.
+18 verbose exit [ 1, true ]
