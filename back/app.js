@@ -10,13 +10,13 @@ var errorHandler = require('errorhandler');
 var compress = require('compression');
 var multipart = require('connect-multiparty');
 var helmet = require('helmet');
-var load = require('express-load');
 var partials = require('./modules/expose/partials');
 var expose = require('./modules/expose/index');
 var routes = require('./modules/main/routes');
-var expose = require('./modules/expose/index');
 var app = express();
 var api = {};
+api.user = require('./modules/user/api/routes');
+api.client = require('./modules/client/api/routes');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -37,13 +37,11 @@ app.set('view engine', 'jade');
 app.use('/', routes);
 app.use('/expose', expose);
 app.use('/partials', partials);
-//app.use('/api/users',api.users);
+app.use('/api/user', api.user);
+app.use('/api/client', api.client);
 // TODO criar página de erro 404
 app.get('*', function(req, res, next) {
   res.render('main/views/index');
 });
-
-load('user', {cwd: 'back/modules'})
-  .into(app);
 
 module.exports = app;

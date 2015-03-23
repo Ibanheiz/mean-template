@@ -1,6 +1,4 @@
-var mongoose = require('mongoose');
-
-module.exports = function (uri){
+module.exports = function (uri, mongoose){
   mongoose.connect(uri);
 
   var db = mongoose.connection;
@@ -32,5 +30,3 @@ module.exports = function (uri){
     });
   });
 }
-
-require('./../modules/main/models');

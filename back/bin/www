@@ -1,7 +1,8 @@
 var config = require('./../config/config')();
 var http = require('http');
 var app = require('./../app');
-require('./../config/conexao')(config.db);
+var mongoose = require('mongoose');
+require('./../config/conexao')(config.db, mongoose);
 
 app.set('port', config.port);
 var server = http.createServer(app).listen(config.port, config.address, function(){

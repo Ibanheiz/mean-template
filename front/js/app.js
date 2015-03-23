@@ -11,9 +11,13 @@
     ]).
   config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
-    when('/mean-seed', {
+    when('/mean-seed/client', {
+      templateUrl: 'expose/client/list',
+      controller: 'ClientController'
+    }).
+    when('/mean-seed/user', {
       templateUrl: 'expose/user/list',
-      controller: 'appController'
+      controller: 'UserController'
     }).
     otherwise({
       redirectTo: '/'

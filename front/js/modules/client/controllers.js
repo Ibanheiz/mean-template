@@ -4,11 +4,11 @@
 
   var _user = {};
 
-  angular.module('app.modules.User.controllers', [])
-  .controller('UserController',
+  angular.module('app.modules.Client.controllers', [])
+  .controller('ClientController',
     ['$scope', '$http',
     function ($scope, $http, VsrService, $upload, $sce) {
-      $scope.mensagem = "Listagem de Usuários";
+      $scope.mensagem = "Listagem de Clientes";
     }
     ]);
 })(angular);
