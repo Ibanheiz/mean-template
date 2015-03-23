@@ -15,6 +15,10 @@ var jsFiles = [
   'front/js/*.js',
   'front/js/modules/**/*.js'
 ];
+var jsComponents = [
+  'front/components/**/angular.min.js',
+  'front/components/**/*min.js'
+];
 
 gulp.task('lint', function() {
   return gulp.src(jsFiles)
@@ -33,7 +37,7 @@ gulp.task('stylus', function(){
 });
 
 gulp.task("bower", function(){
-    return gulp.src('front/components/**/*min.js')
+    return gulp.src(jsComponents)
     .pipe(sourcemaps.init())
     .pipe(concat('components.js'))
     .pipe(gulp.dest("front/js/min"));

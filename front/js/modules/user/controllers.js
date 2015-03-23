@@ -7,7 +7,7 @@
   angular.module('app.modules.User.controllers', [])
   .controller('UserController',
     ['$scope', '$http',
-    function ($scope, $http, VsrService, $upload, $sce) {
+    function ($scope, $http) {
       $scope.mensagem = "Listagem de Usuários";
     }
     ]);

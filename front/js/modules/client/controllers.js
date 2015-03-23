@@ -7,7 +7,7 @@
   angular.module('app.modules.Client.controllers', [])
   .controller('ClientController',
     ['$scope', '$http',
-    function ($scope, $http, VsrService, $upload, $sce) {
+    function ($scope, $http) {
       $scope.mensagem = "Listagem de Clientes";
     }
     ]);
