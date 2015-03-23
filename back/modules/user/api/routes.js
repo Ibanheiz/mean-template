@@ -1,4 +1,5 @@
-module.exports = function (mongoose, router) {
+  module.exports = function (mongoose, express) {
+  var router = express.Router();
   var User = require('./../model')(mongoose);
   var controller = require('./controller')(User);
 

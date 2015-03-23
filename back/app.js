@@ -15,11 +15,10 @@ var expose = require('./modules/expose/index');
 var routes = require('./modules/main/routes');
 var mongoose = require('mongoose');
 var express = require('express');
-var router = express.Router();
 var app = express();
 var api = {};
-api.user = require('./modules/user/api/routes')(mongoose, router);
-api.client = require('./modules/client/api/routes')(mongoose, router);
+api.client = require('./modules/client/api/routes')(mongoose, express);
+api.user = require('./modules/user/api/routes')(mongoose, express);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
