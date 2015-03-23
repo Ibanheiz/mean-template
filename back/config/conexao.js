@@ -32,3 +32,5 @@ module.exports = function (uri){
     });
   });
 }
+
+require('./../modules/main/models');

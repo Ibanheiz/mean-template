@@ -7,7 +7,7 @@
 6 verbose unsafe-perm in lifecycle true
 7 info mean-seed@1.0.0 Failed to exec prestart script
 8 verbose stack Error: mean-seed@1.0.0 prestart: `gulp`
-8 verbose stack Exit status 1
+8 verbose stack Exit status 8
 8 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
 8 verbose stack     at EventEmitter.emit (events.js:98:17)
 8 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
@@ -22,7 +22,7 @@
 14 error npm  v2.7.3
 15 error code ELIFECYCLE
 16 error mean-seed@1.0.0 prestart: `gulp`
-16 error Exit status 1
+16 error Exit status 8
 17 error Failed at the mean-seed@1.0.0 prestart script 'gulp'.
 17 error This is most likely a problem with the mean-seed package,
 17 error not with npm itself.

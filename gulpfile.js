@@ -2,8 +2,6 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
 var stylus = require('gulp-stylus');
 var path = require('path');
@@ -11,11 +9,13 @@ var minifyCss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var nodemon = require('gulp-nodemon');
 var livereload = require('gulp-livereload');
+var mainBowerFiles = require('main-bower-files');
+var filter = require('gulp-filter');
 var styleFiles = 'front/css/stylus/*.stylus';
 var styleFilesModules = 'front/css/stylus/**/*.stylus';
 var jsFiles = [
   'front/js/*.js',
-  'front/js/mobules/**/*.js'
+  'front/js/modules/**/*.js'
 ];
 
 gulp.task('lint', function() {
@@ -34,12 +34,11 @@ gulp.task('stylus', function(){
   .pipe(livereload());
 });
 
-gulp.task('concat-lib', ['lint'], function() {
-  return gulp.src(lib)
-  .pipe(sourcemaps.init())
-  .pipe(concat('lib.min.js'))
-  .pipe(gulp.dest('front/js/min'))
-  .pipe(livereload());
+gulp.task("bower", function(){
+    return gulp.src('front/components/**/*min.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('components.js'))
+    .pipe(gulp.dest("front/js/min"));
 });
 
 gulp.task('minify', ['lint'], function() {
@@ -79,5 +78,5 @@ gulp.task('demon', function () {
   .on('change', ['watch'])
 });
 
-gulp.task('default', ['demon', 'minify', 'stylus', 'watch']);
+gulp.task('default', ['demon', 'minify', 'bower', 'stylus', 'watch']);
 gulp.task('imageopt', ['images-opt']);

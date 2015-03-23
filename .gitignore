@@ -1,5 +1,5 @@
 .log
 build/Release
 node_modules
-front/bower_components
+front/components
 

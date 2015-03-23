@@ -7,14 +7,12 @@
     'app.directives',
     'app.filters',
     'ngRoute',
-    'ngAnimate',
-    'angularFileUpload',
     'ngSanitize'
     ]).
   config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
     when('/mean-seed', {
-      templateUrl: 'expose/home/home',
+      templateUrl: 'expose/user/list',
       controller: 'appController'
     }).
     otherwise({

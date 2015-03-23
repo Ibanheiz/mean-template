@@ -4,9 +4,11 @@ var app = require('./../app');
 require('./../config/conexao')(config.db);
 
 app.set('port', config.port);
-http.createServer(app).listen(config.port, config.address, function(){
+var server = http.createServer(app).listen(config.port, config.address, function(){
   console.log('Express Https Server '+ config.address + ' (' + config.env + ') escutando na porta ' + config.port);
 });
+
+server.setMaxListeners(0);
 
 process.on('SIGTERM',  function (err) {
   process.exit(1);
