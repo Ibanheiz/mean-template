@@ -13,10 +13,13 @@ var helmet = require('helmet');
 var partials = require('./modules/expose/partials');
 var expose = require('./modules/expose/index');
 var routes = require('./modules/main/routes');
+var mongoose = require('mongoose');
+var express = require('express');
+var router = express.Router();
 var app = express();
 var api = {};
-api.user = require('./modules/user/api/routes');
-api.client = require('./modules/client/api/routes');
+api.user = require('./modules/user/api/routes')(mongoose, router);
+api.client = require('./modules/client/api/routes')(mongoose, router);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
