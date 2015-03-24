@@ -2,15 +2,13 @@ module.exports = function (Client) {
   return {
     findAll: function(req, res, cb) {
       var query = {};
-      console.log('recuperando as fita');
       Client.find(query, function(err,data){
         cb(err, data, res);
       });
     },
     findOneById: function(req, res, cb){
       var id = req.params.id;
-      var query = {id: id};
-
+      var query = {_id: id};
       Client.findOne(query, function (err, data) {
         cb(err, data, res);
       });
