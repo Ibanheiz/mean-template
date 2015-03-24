@@ -6,7 +6,7 @@ module.exports = function (mongoose, express) {
   var cb = function(err, data, res){
     var msg = data;
     if (err){
-      msg = '{Erro: ' + err +'}' ;
+      msg = '{Erro no módulo de Clientes: ' + err + '}';
     }
     res.json(msg);
   }

@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function (express) {
+  var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.redirect('/mean-seed/client');
-});
+  router.get('/', function(req, res) {
+    res.redirect('/mean-seed/client');
+  });
 
-module.exports = router;
+  return router;
+}

@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function (express) {
+  var router = express.Router();
 
-router.get('/:name', function(req, res) {
-  var name = req.params.name;
-  console.log('Partials: partials/' + name);
-  res.render('partials/' + name);
-});
+  router.get('/:name', function(req, res) {
+    var name = req.params.name;
+    res.render('partials/' + name);
+  });
 
-module.exports = router;
+  return router;
+}
