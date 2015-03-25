@@ -38,7 +38,7 @@
   .controller('ClientListController', ClientListController)
   .controller('ClientCreateController', ClientCreateController)
   .controller('ClienteEditController', ClienteEditController)
-  .controller('ClientRemoveController', ClientRemoveController);
+  .controller('ClientRemoveController', ClientRemoveController)
   .controller('ClientShowController', ClientShowController);
 
   // Inject
