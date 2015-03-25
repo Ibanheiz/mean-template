@@ -27,7 +27,7 @@ module.exports = function (mongoose, express) {
       _client.update(req, res, cb);
     })
     .delete(function (req, res) {
-      _client.delete(req, res, cb);
+      _client.remove(req, res, cb);
     });
 
   return router;

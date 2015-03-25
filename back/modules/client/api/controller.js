@@ -2,7 +2,7 @@ module.exports = function (Client) {
   return {
     findAll: function(req, res, cb) {
       var query = {};
-      Client.find(query, function(err,data){
+      Client.find(query, function(err, data){
         cb(err, data, res);
       });
     },
@@ -29,7 +29,7 @@ module.exports = function (Client) {
         cb(err, data, res);
       });
     },
-    delete: function(req, res, cb) {
+    remove: function(req, res, cb) {
       var id = req.params.id;
       var query = {_id: id};
       Client.remove(query, function(err, data) {
