@@ -5,7 +5,8 @@
   "main": "back/bin/www",
   "scripts": {
     "prestart": "gulp",
-    "start": "nodemon back/bin/www"
+    "start": "nodemon back/bin/www",
+    "debug": "node-debug back/bin/www"
   },
   "repository": {
     "type": "git",

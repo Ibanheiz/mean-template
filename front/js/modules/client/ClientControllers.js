@@ -29,7 +29,7 @@
       service.findOneById(id).then(function (data) {
         _client.cbShowSucess(data, $scope);
       }, function (err) {
-        _client.cbError('Erro ao exibir o Cliente', error, $scope);
+        _client.cbError('Erro ao exibir o Cliente: ', error, $scope);
       });
     }
   };
