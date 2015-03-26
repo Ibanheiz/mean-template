@@ -10,8 +10,8 @@ var imagemin = require('gulp-imagemin');
 var nodemon = require('gulp-nodemon');
 var rename = require('gulp-rename');
 var livereload = require('gulp-livereload');
-var styleFiles = 'front/css/stylus/*.stylus';
-var styleFilesModules = 'front/css/stylus/**/*.stylus';
+var styleFiles = 'front/css/stylus/*.styl';
+var styleFilesModules = 'front/css/stylus/**/*.styl';
 var jsFiles = [
   'front/js/*.js',
   'front/js/modules/**/*.js'
@@ -25,7 +25,7 @@ var jsComponentsMaps = [
 ];
 
 gulp.task('lint', function() {
-  return gulp.src(jsFiles)
+  gulp.src(jsFiles)
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
@@ -41,20 +41,20 @@ gulp.task('stylus', function(){
 });
 
 gulp.task("bower", function(){
-  return gulp.src(jsComponents)
+  gulp.src(jsComponents)
   .pipe(sourcemaps.init())
   .pipe(concat('components.js'))
   .pipe(gulp.dest("front/js/min"));
 });
 
 gulp.task("bower-map", function(){
-  return gulp.src(jsComponentsMaps)
+  gulp.src(jsComponentsMaps)
   .pipe(rename({dirname: ''}))
   .pipe(gulp.dest("front/js/min"));
 });
 
 gulp.task('minify', ['lint'], function() {
-  return gulp.src(jsFiles)
+  gulp.src(jsFiles)
   .pipe(sourcemaps.init())
   .pipe(uglify())
   .pipe(concat('all.min.js'))
@@ -84,7 +84,8 @@ gulp.task('watch', function() {
 gulp.task('demon', function () {
   nodemon({
     script: 'back/bin/www',
-    ext: 'js'
+    ext: 'js',
+    env: { 'NODE_ENV': 'development' }
   })
   .on('start', ['watch'])
   .on('change', ['watch'])

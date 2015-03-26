@@ -1,5 +1,0 @@
-default-color = #8cccf2
-
-.titulo
-  font 5em sans-serif
-  color default-color

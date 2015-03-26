@@ -5,6 +5,7 @@
     cbFindAllSucess: function (data, $scope) {
       $scope.clients = data.data;
       $scope.message = 'Listando todos os Cliente';
+      console.log(data);
     },
     cbCreateSucess: function (data, $scope) {
       $scope.client = data.data;

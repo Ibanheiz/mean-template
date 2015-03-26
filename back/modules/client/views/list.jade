@@ -1,3 +1,17 @@
-h1 {{message}}
-div {{clients}}
+h1 Listagem de Clientes
+div.table-client
+  table
+    thead
+      tr
+        th Razão Social
+        th CPF / CNPJ
+        th Telefone
+        th Data de Cadastro
+    tbody
+      tr(data-ng-repeat='client in clients')
+        td {{client.razaoSocial}}
+        td(data-ng-hide='!client.cpf') {{client.cpf}}
+        td(data-ng-hide='!client.cnpj') {{client.cnpj}}
+        td {{client.telefone}}
+        td {{client.data | date:'dd-MM-yyyy HH:mm'}}
 div {{status}}

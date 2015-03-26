@@ -1,0 +1,100 @@
+//Opcidade. Default 0.5
+opacity (opacity 0.5)
+  -webkit-opacity opacity
+  -moz-opacity opacity
+  opacity opacity
+
+
+//Gradient linear. Default do cinza para o branco
+gradient-linear (startColor #eee, endColor white)
+  background-color startColor
+  background -webkit-gradient(linear, left top, left bottom, from(startColor), to(endColor))
+  background -webkit-linear-gradient(top, startColor, endColor)
+  background -moz-linear-gradient(top, startColor, endColor)
+  background -ms-linear-gradient(top, startColor, endColor)
+  background -o-linear-gradient(top, startColor, endColor)
+
+
+//Transição
+transition (property, duration, function)
+  -webkit-transition property duration function
+  -moz-transition property duration function
+  -ms-transition property duration function
+  -o-transition property duration function
+
+
+//Background responsivo
+responsive-image(image, background-size)
+  background image no-repeat center center
+  background-size background-size
+  -webkit-background-size background-size
+  -moz-background-size background-size
+  -ms-background-size background-size
+  -o-background-size background-size
+
+
+// Alinha divs com position absolute
+align-center(width, height, unit)
+  marginLeft = (-1 * (width / 2))
+  marginTop =  (-1 * (height / 2))
+  position absolute
+  width unit(width)
+  height unit(height)
+  margin-left unit(marginLeft)
+  margin-top unit(marginTop)
+  left 50%
+  top 50%
+
+
+// Alinha divs com position absolute
+align-center-horizontal(width, unit)
+  marginLeft = (-1 * (width / 2))
+  position absolute
+  width unit(width)
+  margin-left unit(marginLeft)
+  left 50%
+
+
+// Alinha divs com position absolute
+align-center-vertical(height, unit)
+  marginTop = (-1 * (height / 2))
+  position absolute
+  height unit(height)
+  margin-top unit(marginTop)
+  top 50%
+
+
+// Animation para inputs
+.animation-ease
+  -webkit-transition all .5s ease
+  -moz-transition all .5s ease
+  transition all .5s ease
+
+
+// Utilizada para exibir qualquer input via js
+.input-show
+  visibility visible !important
+  opacity 0.95 !important
+  @extends .animation-ease
+
+
+// Utilizada como herança para esconder qualquer input
+.input-hide
+  visibility hidden
+  opacity 0
+  @extends .animation-ease
+
+
+// Utilizada para exibir qualquer div via js
+.div-show
+  visibility visible !important
+  opacity 0.95 !important
+  transition(all, 0.4s, linear)
+
+
+// Utilizada como herança para esconder qualquer div
+.div-hide
+  visibility hidden
+  opacity 0
+  transition(all, 0.4s, linear)
+
