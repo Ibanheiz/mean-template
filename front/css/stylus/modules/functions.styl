@@ -4,7 +4,6 @@ opacity(opacity)
   -moz-opacity opacity
   opacity opacity
 
-
 //Gradient linear.
 gradient-linear(startColor, endColor)
   background-color startColor
@@ -14,14 +13,12 @@ gradient-linear(startColor, endColor)
   background -ms-linear-gradient(top, startColor, endColor)
   background -o-linear-gradient(top, startColor, endColor)
 
-
 //Transição
 transition(property, duration, function)
   -webkit-transition property duration function
   -moz-transition property duration function
   -ms-transition property duration function
   -o-transition property duration function
-
 
 //Background responsivo
 responsive-image(image, background-size)
@@ -31,7 +28,6 @@ responsive-image(image, background-size)
   -moz-background-size background-size
   -ms-background-size background-size
   -o-background-size background-size
-
 
 // Alinha divs com position absolute
 align-center(width, height, unit)
@@ -45,7 +41,6 @@ align-center(width, height, unit)
   left 50%
   top 50%
 
-
 // Alinha divs com position absolute
 align-center-horizontal(width, unit)
   marginLeft = (-1 * (width / 2))
@@ -53,7 +48,6 @@ align-center-horizontal(width, unit)
   width unit(width)
   margin-left unit(marginLeft)
   left 50%
-
 
 // Alinha divs com position absolute
 align-center-vertical(height, unit)
@@ -63,13 +57,11 @@ align-center-vertical(height, unit)
   margin-top unit(marginTop)
   top 50%
 
-
 // Animation para inputs
 .animation-ease
   -webkit-transition all .5s ease
   -moz-transition all .5s ease
   transition all .5s ease
-
 
 // Utilizada para exibir qualquer input via js
 .input-show
@@ -77,13 +69,11 @@ align-center-vertical(height, unit)
   opacity 0.95 !important
   @extends .animation-ease
 
-
 // Utilizada como herança para esconder qualquer input
 .input-hide
   visibility hidden
   opacity 0
   @extends .animation-ease
-
 
 // Utilizada para exibir qualquer div via js
 .div-show
@@ -91,10 +81,34 @@ align-center-vertical(height, unit)
   opacity 0.95 !important
   transition(all, 0.4s, linear)
 
-
 // Utilizada como herança para esconder qualquer div
 .div-hide
   visibility hidden
   opacity 0
   transition(all, 0.4s, linear)
 
+// Grids
+.grid-around
+  display flex
+  justify-content space-around
+
+
+.grid-between
+  display flex
+  justify-content space-between
+
+
+.grid-start
+  display flex
+  justify-content flex-start
+
+
+.grid-end
+  display flex
+  justify-content flex-end
+
+
+.grid-reverse
+  display flex
+  justify-content flex-start
+  flexbox-direction row-reverse

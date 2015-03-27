@@ -1,6 +1,37 @@
-h2 {{title}}
-div {{client.razaoSocial}}
+h1 {{title}}
+div.form-cadastro
+  form(name="form_cliente", data-ng-submit="save(client)")
+    div.column-label
+      label(for="razaoSocial") Razão Social
+    div.column-input
+      input(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", required)
 
+    div.container-documento
+      div.radio-container
+        input(type="radio", data-ng-model="pessoa", value="fisica" data-ng-click="resetCpfCnpj()")
+        label(for="pessoa") Física
+        input(type="radio", data-ng-model="pessoa", value="juridica" data-ng-click="resetCpfCnpj()")
+        label(for="pessoa") Jurídica
 
-div
-  a(href='/mean-seed/client/') < Voltar
+      div(data-ng-hide="!isPessoaFisica()")
+        div.column-label
+          label(for="cpf") CPF
+        div.column-input
+          input(type="text", name="cpf", data-ng-model="client.cpf", data-ng-required="isPessoaFisica()")
+      div(data-ng-hide="isPessoaFisica()")
+        div.column-label
+          label(for="cnpj") CNPJ
+        div.column-input
+          input(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-required="!isPessoaFisica()")
+
+    div.column-label
+      label(for="telefone") Telefone
+    div.column-input
+      input(type="text", name="telefone", data-ng-model="client.telefone", required)
+    div.button-container-cliente(data-ng-hide="readonly")
+      input.button-save-cliente(type="submit", value="Salvar")
+      input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
+
+div.link-voltar
+  a(href='/mean-seed/client/') Voltar
+div {{status}}

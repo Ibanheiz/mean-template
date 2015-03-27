@@ -1,13 +1,6 @@
-(function(angular) {
-
-  angular.module('app.modules.Client.services', [])
-    .service('ClientService', ClientService);
-
-  // Inject
-  ClientService.$inject = ['$http'];
-
+(function (angular) {
   // Functions
-  function ClientService ($http) {
+  function ClientService($http) {
     var url = 'api/client';
 
     this.findAll = function () {
@@ -18,7 +11,7 @@
       return $http.get(url + '/id/' + id);
     };
 
-    this.save = function (data) {
+    this.create = function (data) {
       return $http.post(url, data);
     };
 
@@ -30,6 +23,13 @@
       return $http.delete(url + '/id/' + data._id, data);
     };
   }
-})(angular);
+
+  // Services
+  angular.module('app.modules.Client.services', [])
+    .service('ClientService', ClientService);
+
+  // Inject
+  ClientService.$inject = ['$http'];
+}(angular));
 
 

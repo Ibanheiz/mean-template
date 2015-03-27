@@ -1,8 +1,8 @@
-(function(angular){
+(function (angular) {
   'use strict';
 
   angular.module('app.services',
-  [
-    'app.modules.Client.services'
-  ]);
-})(angular);
+    [
+      'app.modules.Client.services'
+    ]);
+}(angular));
