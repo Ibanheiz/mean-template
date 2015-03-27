@@ -1,12 +1,12 @@
-//Opcidade. Default 0.5
-opacity (opacity 0.5)
+//Opcidade.
+opacity(opacity)
   -webkit-opacity opacity
   -moz-opacity opacity
   opacity opacity
 
 
-//Gradient linear. Default do cinza para o branco
-gradient-linear (startColor #eee, endColor white)
+//Gradient linear.
+gradient-linear(startColor, endColor)
   background-color startColor
   background -webkit-gradient(linear, left top, left bottom, from(startColor), to(endColor))
   background -webkit-linear-gradient(top, startColor, endColor)
@@ -16,7 +16,7 @@ gradient-linear (startColor #eee, endColor white)
 
 
 //Transição
-transition (property, duration, function)
+transition(property, duration, function)
   -webkit-transition property duration function
   -moz-transition property duration function
   -ms-transition property duration function

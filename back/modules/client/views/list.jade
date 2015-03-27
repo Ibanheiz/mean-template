@@ -1,17 +1,29 @@
 h1 Listagem de Clientes
-div.table-client
-  table
+div.table-client-container
+  table.table-client
     thead
       tr
         th Razão Social
         th CPF / CNPJ
         th Telefone
         th Data de Cadastro
+        th Editar
+        th Remover
     tbody
-      tr(data-ng-repeat='client in clients')
+      tr(data-ng-repeat='client in clients', data-ng-class="{'odd-row': $index % 2 == 1, 'even-row': $index % 2 == 0}")
         td {{client.razaoSocial}}
         td(data-ng-hide='!client.cpf') {{client.cpf}}
         td(data-ng-hide='!client.cnpj') {{client.cnpj}}
         td {{client.telefone}}
-        td {{client.data | date:'dd-MM-yyyy HH:mm'}}
+        td {{client.data | date:'dd/MM/yyyy HH:mm'}}
+        td
+          a(href='/mean-seed/client/{{client._id}}/edit')
+            img(src="./image/icon-edit.png", alt="Editar", title="Editar Cliente", width="22", height="22")
+        td
+          span(data-ng-controller="ClientRemoveController", style="cursor: pointer")
+            a(data-ng-click='remove(client)')
+              img(src="./image/icon-remove.png", alt="Remover", title="Remover Cliente", width="22", height="22")
+  div.empty-message(data-ng-hide='clients.length > 0') Não há Clientes cadastrados
+div.button-novo-cliente
+  a(href='/mean-seed/client/create') Novo
 div {{status}}

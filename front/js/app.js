@@ -16,11 +16,11 @@
       controller: 'ClientListController'
     }).
     when('/mean-seed/client/create', {
-      templateUrl: 'expose/client/create',
+      templateUrl: 'expose/client/save',
       controller: 'ClientCreateController'
     }).
     when('/mean-seed/client/:id/edit', {
-      templateUrl: 'expose/client/edit',
+      templateUrl: 'expose/client/save',
       controller: 'ClientEditController'
     }).
     when('/mean-seed/client/:id/remove', {
