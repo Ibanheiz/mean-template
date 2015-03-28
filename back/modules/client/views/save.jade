@@ -4,13 +4,15 @@ div.form-cadastro
     div.column-label
       label(for="razaoSocial") Razão Social
     div.column-input
-      input(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", required)
+      input(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", data-ng-disabled="readonly", required)
 
     div.container-documento
       div.radio-container
-        input(type="radio", data-ng-model="pessoa", value="fisica" data-ng-click="resetCpfCnpj()")
+        input(type="radio", data-ng-model="pessoa", value="fisica"
+              data-ng-click="resetCpfCnpj()",data-ng-disabled="readonly")
         label(for="pessoa") Física
-        input(type="radio", data-ng-model="pessoa", value="juridica" data-ng-click="resetCpfCnpj()")
+        input(type="radio", data-ng-model="pessoa", value="juridica"
+              data-ng-click="resetCpfCnpj()", data-ng-disabled="readonly")
         label(for="pessoa") Jurídica
 
       div(data-ng-hide="!isPessoaFisica()")
@@ -22,16 +24,19 @@ div.form-cadastro
         div.column-label
           label(for="cnpj") CNPJ
         div.column-input
-          input(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-required="!isPessoaFisica()")
+          input(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-disabled="readonly",
+                data-ng-required="!isPessoaFisica()")
 
     div.column-label
       label(for="telefone") Telefone
     div.column-input
-      input(type="text", name="telefone", data-ng-model="client.telefone", required)
-    div.button-container-cliente(data-ng-hide="readonly")
-      input.button-save-cliente(type="submit", value="Salvar")
-      input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
+      input(type="text", name="telefone", data-ng-disabled="readonly" data-ng-model="client.telefone", required)
+    div.button-container-cliente(data-ng-hide="!readonly")
+      input.button-novo-cliente(type="button", value="Editar", data-ng-click="edit()")
 
+    div.button-container-cliente(data-ng-hide="readonly")
+      input.button-save-cliente(type="submit", value="Salvar" show-dialog)
+      input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
 div.link-voltar
   a(href='/mean-seed/client/') Voltar
 div {{status}}

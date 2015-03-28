@@ -1,4 +1,11 @@
 (function (angular) {
+
+  // Services
+  angular.module('app.modules.Client.services', [])
+    .service('ClientService', ClientService);
+
+  // Inject
+  ClientService.$inject = ['$http'];
   // Functions
   function ClientService($http) {
     var url = 'api/client';
@@ -23,13 +30,6 @@
       return $http.delete(url + '/id/' + data._id, data);
     };
   }
-
-  // Services
-  angular.module('app.modules.Client.services', [])
-    .service('ClientService', ClientService);
-
-  // Inject
-  ClientService.$inject = ['$http'];
 }(angular));
 
 

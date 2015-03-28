@@ -50,7 +50,7 @@
       }
     },
     isCadastro: function ($scope) {
-      return (angular.isUndefined($scope.client) && $scope.client._id === '');
+      return (angular.isUndefined($scope.client) || $scope.client._id === '');
     },
     resetCpfCnpj: function ($scope) {
       $scope.client.cpf = null;
@@ -115,6 +115,7 @@
     };
 
     $scope.cancel = function () {
+      $scope.readonly = true;
       angular.copy($scope.clientCopy, $scope.client);
       angular.copy($scope.pessoaCopy, $scope.pessoa);
     };
@@ -134,7 +135,6 @@
 
   function ClientRemoveController($scope, ClientService) {
     $scope.remove = function (client) {
-      var confirm = false;
       if (confirm('Deseja realmente excluir o Cliente ' + client.razaoSocial + '?')) {
         ClientService.remove(client).then(function () {
           _client.cbRemoveSucess(client, $scope);
@@ -159,12 +159,10 @@
     .controller('ClientShowController', ClientShowController);
 
   // Inject
-  ClientListController.$inject = ['$scope', '$http', 'ClientService'];
-  ClientCreateController.$inject = ['$scope', '$http', 'ClientService'];
-  ClientEditController.$inject = ['$scope', '$http', '$routeParams', 'ClientService'];
-  ClientRemoveController.$inject = ['$scope', '$http', '$routeParams', 'ClientService'];
-  ClientShowController.$inject = ['$scope', '$http', '$routeParams', 'ClientService'];
+  ClientListController.$inject = ['$scope', 'ClientService'];
+  ClientCreateController.$inject = ['$scope', 'ClientService'];
+  ClientEditController.$inject = ['$scope', '$routeParams', 'ClientService'];
+  ClientRemoveController.$inject = ['$scope', 'ClientService'];
+  ClientShowController.$inject = ['$scope', '$routeParams', 'ClientService'];
 
 }(angular));
-
-

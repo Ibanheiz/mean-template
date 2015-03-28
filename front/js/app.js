@@ -31,8 +31,12 @@
           templateUrl: 'expose/user/list',
           controller: 'UserController'
         }).
+        when('/mean-seed/404', {
+          templateUrl: 'expose/main/404',
+          controller: 'UserController'
+        }).
         otherwise({
-          redirectTo: '/'
+          redirectTo: '/mean-seed/404'
         });
       $locationProvider.html5Mode(true);
     }]);

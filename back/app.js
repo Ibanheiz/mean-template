@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var uuid = require('node-uuid');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
@@ -26,7 +27,7 @@ app.use(compress());
 app.use(express.static(path.join(__dirname, '../front')));
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(session({ secret: uuid.v1(), resave: true, saveUninitialized: true }));
 app.use(helmet());
 app.use(helmet.xframe());
 app.use(helmet.xssFilter());
@@ -40,8 +41,7 @@ app.use('/expose', expose);
 app.use('/partials', partials);
 app.use('/api/user', api.user);
 app.use('/api/client', api.client);
-// TODO criar página de erro 404
-app.get('*', function(req, res, next) {
+app.get('*', function (req, res, next) {
   res.render('main/views/index');
 });
 
