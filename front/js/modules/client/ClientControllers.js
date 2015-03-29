@@ -13,25 +13,27 @@
       $scope.message = 'Listando todos os Cliente';
       console.log(data);
     },
-    cbCreateSucess: function (data, $scope) {
-      $scope.client = data.data;
-      $scope.message = 'Cliente cadastrado com sucesso';
+    cbCreateSucess: function (data, $scope, $timeout) {
+      $scope.message = 'Cliente ' + data.data.razaoSocial + ' cadastrado com sucesso';
+      $scope.client = {};
+      _client.showModal($scope, $timeout);
     },
     cbShowSucess: function (data, $scope) {
       $scope.client = data.data;
       var client = $scope.client;
       $scope.title = "Alterando o Cliente " + $scope.client.razaoSocial;
       $scope.pessoa = (client.cpf && client.cpf !== '') ? 'fisica' : 'juridica';
-      $scope.message = 'Cliente' + $scope.client.razaoSocial + ' sendo exibido';
+      $scope.message = 'Cliente ' + $scope.client.razaoSocial + ' sendo exibido';
       _client.copy($scope);
     },
-    cbUpdateSucess: function (client, $scope) {
-      $scope.message = 'Cliente' + client.razaoSocial + ' alterado com sucesso';
+    cbUpdateSucess: function ($scope, $timeout) {
+      $scope.message = 'Cliente ' + $scope.client.razaoSocial + ' alterado com sucesso';
       $scope.readonly = true;
       _client.copy($scope);
+      _client.showModal($scope, $timeout);
     },
     cbRemoveSucess: function (client, $scope) {
-      $scope.message = 'Cliente' + client.razaoSocial + ' removido com sucesso';
+      $scope.message = 'Cliente ' + client.razaoSocial + ' removido com sucesso';
     },
     cbError: function (message, error, $scope) {
       $scope.status = message + error.message;
@@ -50,7 +52,13 @@
       }
     },
     isCadastro: function ($scope) {
-      return (angular.isUndefined($scope.client) || $scope.client._id === '');
+      if (angular.isUndefined($scope.client)) {
+        return true;
+      }
+      if (angular.isUndefined($scope.client._id)) {
+        return true;
+      }
+      return false;
     },
     resetCpfCnpj: function ($scope) {
       $scope.client.cpf = null;
@@ -59,6 +67,12 @@
     copy: function ($scope) {
       $scope.clientCopy = angular.copy($scope.client);
       $scope.pessoaCopy  = angular.copy($scope.pessoa);
+    },
+    showModal: function ($scope, $timeout) {
+      $scope.showModal = !$scope.showModal;
+      $timeout(function () {
+        $scope.showModal = !$scope.showModal;
+      }, 4000);
     }
   };
 
@@ -71,13 +85,14 @@
     });
   }
 
-  function ClientCreateController($scope, ClientService) {
+  function ClientCreateController($scope, $timeout, ClientService) {
     $scope.title = "Novo Cliente";
     $scope.pessoa = 'fisica';
+    $scope.showModal = false;
 
     $scope.save = function (client) {
       ClientService.create(client).then(function (data) {
-        _client.cbCreateSucess(data, $scope);
+        _client.cbCreateSucess(data, $scope, $timeout);
       }, function (err) {
         _client.cbError('Erro ao cadastrar o Cliente: ', err, $scope);
       });
@@ -96,15 +111,16 @@
     };
   }
 
-  function ClientEditController($scope, $routeParams, ClientService) {
+  function ClientEditController($scope, $routeParams, $timeout, ClientService) {
     var service = ClientService;
     $scope.readonly = true;
+    $scope.showModal = false;
 
     _client.findClienteById(service, $scope, $routeParams);
 
     $scope.save = function (client) {
-      service.update(client).then(function (data) {
-        _client.cbUpdateSucess(data, $scope);
+      service.update(client).then(function () {
+        _client.cbUpdateSucess($scope, $timeout);
       }, function (err) {
         _client.cbError('Erro ao alterar o Cliente: ', err, $scope);
       });
@@ -160,8 +176,8 @@
 
   // Inject
   ClientListController.$inject = ['$scope', 'ClientService'];
-  ClientCreateController.$inject = ['$scope', 'ClientService'];
-  ClientEditController.$inject = ['$scope', '$routeParams', 'ClientService'];
+  ClientCreateController.$inject = ['$scope', '$timeout', 'ClientService'];
+  ClientEditController.$inject = ['$scope', '$routeParams', '$timeout', 'ClientService'];
   ClientRemoveController.$inject = ['$scope', 'ClientService'];
   ClientShowController.$inject = ['$scope', '$routeParams', 'ClientService'];
 

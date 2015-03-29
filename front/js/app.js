@@ -7,7 +7,8 @@
     'app.filters',
     'app.services',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngAnimate'
   ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider.

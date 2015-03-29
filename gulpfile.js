@@ -86,9 +86,7 @@ gulp.task('demon', function () {
     script: 'back/bin/www',
     ext: 'js',
     env: { 'NODE_ENV': 'development' }
-  })
-    .on('start', ['watch'])
-    .on('change', ['watch']);
+  });
 });
 
 gulp.task('default', ['demon', 'minify', 'bower', 'bower-map', 'stylus', 'watch']);

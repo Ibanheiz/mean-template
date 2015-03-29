@@ -1,16 +1,35 @@
 (function (angular) {
   'use strict';
 
-  function ShowDialog() {
+  function modalDialog() {
     return {
-      restrict: 'A',
-      link: function (scope, iElement, iAttrs) {
-
-      }
+      restrict: 'E',
+      scope: {
+        show: '='
+      },
+      replace: true,
+      transclude: true,
+      link: function (scope, element, attrs) {
+        scope.dialogStyle = {};
+        if (attrs.width) {
+          scope.dialogStyle.width = attrs.width;
+        }
+        if (attrs.minHeight) {
+          scope.dialogStyle.minHeight = attrs.minHeight;
+        }
+        if (attrs.padding) {
+          scope.dialogStyle.paddingTop =  attrs.padding;
+          scope.dialogStyle.paddingBottom =  attrs.padding;
+        }
+        scope.hideModal = function () {
+          scope.show = false;
+        };
+      },
+      templateUrl: 'partials/template-modal'
     };
   }
 
   angular.module('app.modules.Client.directives', [])
-    .directive('showDialog', ShowDialog);
+    .directive('modalDialog', modalDialog);
 
 }(angular));

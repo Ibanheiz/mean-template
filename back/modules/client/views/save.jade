@@ -19,7 +19,8 @@ div.form-cadastro
         div.column-label
           label(for="cpf") CPF
         div.column-input
-          input(type="text", name="cpf", data-ng-model="client.cpf", data-ng-required="isPessoaFisica()")
+          input(type="text", name="cpf", data-ng-model="client.cpf", data-ng-disabled="readonly",
+                data-ng-required="isPessoaFisica()")
       div(data-ng-hide="isPessoaFisica()")
         div.column-label
           label(for="cnpj") CNPJ
@@ -35,8 +36,9 @@ div.form-cadastro
       input.button-novo-cliente(type="button", value="Editar", data-ng-click="edit()")
 
     div.button-container-cliente(data-ng-hide="readonly")
-      input.button-save-cliente(type="submit", value="Salvar" show-dialog)
+      input.button-save-cliente(type="submit", value="Salvar")
       input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
+include ../../main/views/modal
 div.link-voltar
   a(href='/mean-seed/client/') Voltar
 div {{status}}
