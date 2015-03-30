@@ -1,4 +1,5 @@
 *.log
+build
 build/Release
 node_modules
 front/components

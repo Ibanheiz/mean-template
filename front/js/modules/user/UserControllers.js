@@ -1,7 +1,12 @@
-(function(angular) {
+(function (angular) {
   'use strict';
 
   var _user = {};
+
+  // Functions
+  function UserController($scope, $http) {
+    $scope.mensagem = "Listagem de Usuários";
+  }
 
   // Controllers
   angular.module('app.modules.User.controllers', [])
@@ -10,10 +15,6 @@
   // Inject
   UserController.$inject = ['$scope', '$http'];
 
-  // Functions
-  function UserController ($scope, $http) {
-    $scope.mensagem = "Listagem de Usuários";
-  }
-})(angular);
+}(angular));
 
 
