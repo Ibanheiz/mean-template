@@ -30,7 +30,7 @@
 
       $routeProvider.
         when('/mean-seed/login', {
-          templateUrl: 'expose/main/login',
+          templateUrl: 'expose/login/login',
           controller: 'LoginController'
         }).
         when('/mean-seed/client', {
