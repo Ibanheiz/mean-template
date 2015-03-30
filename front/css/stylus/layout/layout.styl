@@ -3,7 +3,7 @@ body
 
 .titulo
   font-size rem(50px)
-  color default-color
+  color strong-color
 
 h1
   font rem(25px) sans-serif
@@ -23,3 +23,66 @@ h1
   gradient-linear(#1390DD, #47A5E0)
   transition(all, 0.9s, linear)
   opacity(0.9)
+
+.button
+  width 100px
+  height 35px
+  font-size rem(18px)
+  text-align center
+  line-height 35px
+  border-radius 4px
+  margin-top 20px
+  border 1px solid #333
+  color #fff
+  cursor pointer
+  box-shadow 0px 0px 5px #666
+  transition(all, 0.2s, linear)
+
+.button-hover
+  transition(all, 0.2s, linear)
+  box-shadow none
+
+.form
+  width 50%;
+
+.column-label
+  color #333
+  font-size rem(18px)
+  margin 5px
+
+.column-input input
+  color #666
+  width 100%
+  height 35px
+  font-size rem(20px)
+  padding 5px
+  margin-bottom 10px
+
+.column-input input:focus
+  outline none
+  box-shadow: 0 0 2px #999
+  border 1px solid #999
+  transition(all, 0.4s, linear)
+
+.column-input input:focus:valid
+  box-shadow: 0 0 2px #0f0
+
+.column-input input:focus:invalid
+  box-shadow: 0 0 2px #f00
+
+.radio-container
+  position absolute
+  right 0
+
+input[type=radio]
+  margin 0 3px 0 10px
+
+.container-documento
+  position relative
+
+.default-link
+  position absolute
+  bottom 2%
+
+.default-link a
+  color default-color

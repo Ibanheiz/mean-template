@@ -1,5 +1,5 @@
 h1 {{title}}
-div.form-cadastro
+div.form
   form(name="form_cliente", data-ng-submit="save(client)")
     div.column-label
       label(for="razaoSocial") Razão Social
@@ -39,6 +39,6 @@ div.form-cadastro
       input.button-save-cliente(type="submit", value="Salvar")
       input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
 include ../../main/views/modal
-div.link-voltar
+div.default-link
   a(href='/mean-seed/client/') Voltar
 div {{status}}
