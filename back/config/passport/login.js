@@ -16,14 +16,13 @@ module.exports = function (passport, User) {
             return done(err);
           }
           if (!user) {
-            console.log('Usuário não encontrado ' + username);
-            return done(null, false, req.flash('message', 'Usuário não encontrado'));
+            console.log('Usuário não encontrado: ' + username);
+            return done(null, false, {message: 'Usuário não encontrado'});
           }
           if (!isValidPassword(user, password)) {
             console.log('Senha inválida');
-            return done(null, false, req.flash('message', 'Senha inválida'));
+            return done(null, false, {message: 'Senha inválida'});
           }
-          console.log('Logado com sucesso');
           return done(null, user);
         }
         );

@@ -1,30 +1,45 @@
 module.exports = function (express, passport) {
   var router = express.Router();
 
-  var home = '/mean-seed/client/';
-
-  router.post('/login', passport.authenticate('login', {
-    successRedirect: home,
-    failureRedirect: '/',
-    failureFlash : true
-  }));
-
-  router.get('/signup', function (req, res) {
-    res.render('register');
+  router.post('/login', function (req, res, next) {
+    passport.authenticate('login', function (err, user, info) {
+      var data = {
+        user: user,
+        message: info ? info.message : ''
+      };
+      req.logIn(user, function (err) {
+        if (err) {
+          data.err = err;
+        }
+        console.log(data);
+        return res.json(data);
+      });
+    })(req, res, next);
   });
 
-  router.post('/signup', passport.authenticate('signup', {
-    successRedirect: home,
-    failureRedirect: '/signup',
-    failureFlash : true
-  }));
+  router.post('/signup', function (req, res, next) {
+    passport.authenticate('signup', function (err, user, info) {
+      var data = {
+        user: user,
+        message: info ? info.message : ''
+      };
+      req.logIn(user, function (err) {
+        if (err) {
+          data.err = err;
+        }
+        console.log(data);
+        return res.json(data);
+      });
+    })(req, res, next);
+  });
 
   router.get('/signout', function (req, res) {
     req.logout();
-    res.redirect('/');
+    res.json('Encerrando a sessão do usuário');
   });
 
   router.get('/loggedin', function (req, res) {
+    console.log('Usuário autenticado: ' + req.isAuthenticated());
     res.send(req.isAuthenticated() ? req.user : '0');
   });
 

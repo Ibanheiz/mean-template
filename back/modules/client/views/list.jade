@@ -26,4 +26,6 @@ div.table-client-container
   div.empty-message(data-ng-hide='clients.length > 0') Não há Clientes cadastrados
 div.button-novo-cliente
   a(href='/mean-seed/client/create') Novo
+div.default-link(data-ng-controller="LoginController")
+  a(data-ng-click="signout()") Fazer Logout
 div {{status}}

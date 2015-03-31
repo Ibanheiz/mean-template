@@ -1,26 +1,26 @@
 module.exports = function (Client) {
   return {
-    findAll: function(req, res, cb) {
+    findAll: function (req, res, cb) {
       var query = {};
-      Client.find(query, function(err, data){
+      Client.find(query, function (err, data) {
         cb(err, data, res);
       });
     },
-    findOneById: function(req, res, cb){
+    findOneById: function (req, res, cb) {
       var id = req.params.id;
       var query = {_id: id};
       Client.findOne(query, function (err, data) {
         cb(err, data, res);
       });
     },
-    save: function(req, res, cb) {
+    save: function (req, res, cb) {
       var dados = req.body;
       var model = new Client(dados);
       model.save(function (err, data) {
         cb(err, data, res);
       });
     },
-    update: function(req, res, cb) {
+    update: function (req, res, cb) {
       var id = req.params.id;
       var query = {_id: id};
       var mod = req.body;
@@ -29,12 +29,12 @@ module.exports = function (Client) {
         cb(err, data, res);
       });
     },
-    remove: function(req, res, cb) {
+    remove: function (req, res, cb) {
       var id = req.params.id;
       var query = {_id: id};
-      Client.remove(query, function(err, data) {
+      Client.remove(query, function (err, data) {
         cb(err, data, res);
       });
     }
-  }
-}
+  };
+};

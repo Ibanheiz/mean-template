@@ -7,6 +7,9 @@
     this.login = function (data) {
       return $http.post('api/login/login', data);
     };
+    this.signout = function () {
+      return $http.get('api/login/signout');
+    };
   }
 
   // Services

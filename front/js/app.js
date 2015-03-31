@@ -17,7 +17,7 @@
         // Inicializa a promisse
         var deferred = $q.defer();
         // Verifica se existe um usuário autenticado
-        $http.get('/loggedin').success(function (user) {
+        $http.get('/api/login/loggedin').success(function (user) {
           if (user !== '0') {
             deferred.resolve();
           } else {
@@ -83,23 +83,6 @@
           redirectTo: '/mean-seed/404'
         });
       $locationProvider.html5Mode(true);
-    }])
-    .config(['$provide', '$httpProvider', function ($provide, $httpProvider) {
-      // Intercepta o response para saber se a requisição não foi autorizada
-      $provide.factory('authenticateInterceptor', ['$q', '$location', function ($q, $location) {
-        return {
-          response: function (response) {
-            return response;
-          },
-          responseError: function (response) {
-            if (response.status === 401) {
-              $location.url('/mean-seed/login');
-            }
-            return $q.reject(response);
-          }
-        };
-      }]);
-      $httpProvider.interceptors.push('authenticateInterceptor');
     }]);
 }(angular));
 
