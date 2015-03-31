@@ -36,6 +36,7 @@
       $scope.message = 'Cliente ' + client.razaoSocial + ' removido com sucesso';
     },
     cbError: function (message, error, $scope) {
+      console.log(error);
       $scope.status = message + error.message;
     },
     findClienteById: function (service, $scope, $routeParams) {

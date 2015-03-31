@@ -1,6 +1,6 @@
-module.exports = function (mongoose, express) {
+module.exports = function (express) {
   var router = express.Router();
-  var User = require('./../model')(mongoose);
+  var User = require('./../model');
   var _user = require('./controller')(User);
 
   router.get('/', function (req, res) {

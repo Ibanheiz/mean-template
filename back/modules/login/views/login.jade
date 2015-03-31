@@ -1,17 +1,16 @@
 h1 Efetuar Login
-
 div.form-login
-  form(name="form_login", data-ng-action="")
-     div.column-label
+  form(name="form_login", data-ng-submit="login(user)")
+    div.column-label
       label(for="username") Usuário
     div.column-input
       input(type="text", name="username", data-ng-model="user.username", required)
-     div.column-label
+    div.column-label
       label(for="password") Senha
     div.column-input
       input(type="password", name="password", data-ng-model="user.password", required)
     div.button-container-login
       input.button-login(type="submit", value="Entrar")
       div.link-singup
-        a(href='/mean-seed/client/') Cadastrar
+        a(href='/mean-seed/signup/') Cadastrar
 

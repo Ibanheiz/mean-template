@@ -1,7 +1,7 @@
-module.exports = function (passport) {
+module.exports = function (passport, mongoose) {
   var login = require('./login');
   var signup = require('./signup');
-  var User = require('../../modules/user/model');
+  var User = require('../../modules/user/model')(mongoose);
 
   passport.serializeUser(function (user, done) {
     console.log('serializing user: ');
@@ -16,6 +16,6 @@ module.exports = function (passport) {
     });
   });
 
-  login(passport);
-  signup(passport);
+  login(passport, User);
+  signup(passport, User);
 };

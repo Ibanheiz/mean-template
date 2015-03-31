@@ -33,6 +33,10 @@
           templateUrl: 'expose/login/login',
           controller: 'LoginController'
         }).
+        when('/mean-seed/signup', {
+          templateUrl: 'expose/login/signup',
+          controller: 'SignupController'
+        }).
         when('/mean-seed/client', {
           templateUrl: 'expose/client/list',
           controller: 'ClientListController',
