@@ -5,6 +5,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var stylus = require('gulp-stylus');
 var path = require('path');
+var gutil = require('gulp-util');
 var minifyCss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var nodemon = require('gulp-nodemon');
@@ -56,7 +57,7 @@ gulp.task("bower-map", function () {
 gulp.task('minify', ['lint'], function () {
   gulp.src(jsFiles)
     .pipe(sourcemaps.init())
-    .pipe(uglify())
+    .pipe(uglify().on('error', gutil.log)) // notice the event here
     .pipe(concat('all.min.js'))
     .pipe(gulp.dest('front/js/min'))
     .pipe(livereload());
