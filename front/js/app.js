@@ -1,35 +1,37 @@
 (function (angular) {
   'use strict';
 
-  var checkLoggedin = ['$q', '$http', '$location', function ($q, $http, $location) {
+  function checkUser($q, $http, cb) {
     // Inicializa a promisse
     var deferred = $q.defer();
     // Verifica se existe um usuário autenticado
     $http.get('/api/login/loggedin').success(function (user) {
-      if (user !== '0') {
-        deferred.resolve();
-      } else {
-        deferred.reject();
-        $location.url('/mean-seed/login');
-      }
+      cb(deferred, user);
     });
     return deferred.promise;
-  }];
-
-  var checkLoggedOut = ['$q', '$http', '$location', function ($q, $http, $location) {
-    // Inicializa a promisse
-    var deferred = $q.defer();
-    // Verifica se existe um usuário autenticado
-    $http.get('/api/login/loggedin').success(function (user) {
-      if (user !== '0') {
-        deferred.reject();
-        $location.url('/mean-seed/client');
-      } else {
-        deferred.resolve();
-      }
-    });
-    return deferred.promise;
-  }];
+  }
+  var auth = {
+    checkLoggedin: ['$q', '$http', '$location', function ($q, $http, $location) {
+      checkUser($q, $http, function (deferred, user) {
+        if (user !== '0') {
+          deferred.resolve();
+        } else {
+          deferred.reject();
+          $location.url('/mean-seed/login');
+        }
+      });
+    }],
+    checkLoggedOut: ['$q', '$http', '$location', function ($q, $http, $location) {
+      checkUser($q, $http, function (deferred, user) {
+        if (user !== '0') {
+          deferred.reject();
+          $location.url('/mean-seed/client');
+        } else {
+          deferred.resolve();
+        }
+      });
+    }]
+  };
 
   angular.module('app', [
     'app.controllers',
@@ -48,56 +50,56 @@
           templateUrl: 'expose/login/login',
           controller: 'LoginController',
           resolve: {
-            loggedin: checkLoggedOut
+            loggedin: auth.checkLoggedOut
           }
         }).
         when('/mean-seed/signup', {
           templateUrl: 'expose/login/signup',
           controller: 'SignupController',
           resolve: {
-            loggedin: checkLoggedOut
+            loggedin: auth.checkLoggedOut
           }
         }).
         when('/mean-seed/client', {
           templateUrl: 'expose/client/list',
           controller: 'ClientListController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         when('/mean-seed/client/create', {
           templateUrl: 'expose/client/save',
           controller: 'ClientCreateController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         when('/mean-seed/client/:id/edit', {
           templateUrl: 'expose/client/save',
           controller: 'ClientEditController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         when('/mean-seed/client/:id/remove', {
           templateUrl: 'expose/client/edit',
           controller: 'ClientRemoveController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         when('/mean-seed/user', {
           templateUrl: 'expose/user/list',
           controller: 'UserController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         when('/mean-seed/404', {
           templateUrl: 'expose/main/404',
           controller: 'UserController',
           resolve: {
-            loggedin: checkLoggedin
+            loggedin: auth.checkLoggedin
           }
         }).
         otherwise({
