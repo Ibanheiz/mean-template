@@ -1,7 +1,7 @@
 module.exports = {
-	env: 'development',
-	db: 'mongodb://localhost/mean-seed',
-	port: 3000,
-	address: 'localhost',
-	domain: 'localhost:3000'
+  env: 'production',
+  db: process.env.OPENSHIFT_MONGODB_DB_URL + 'mean-seed',
+  port: process.env.OPENSHIFT_NODEJS_PORT,
+  address: process.env.OPENSHIFT_NODEJS_IP,
+  domain: process.env.OPENSHIFT_APP_DNS
 };
