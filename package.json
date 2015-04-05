@@ -2,7 +2,7 @@
   "name": "mean-seed",
   "version": "1.0.0",
   "description": "Projeto base configurado para novos projetos com MEAN",
-  "main": "back/bin/www",
+  "main": "back/app.js",
   "scripts": {
     "prestart": "gulp",
     "start": "nodemon back/bin/www",
