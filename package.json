@@ -55,7 +55,7 @@
     "stylus-type-utils": "0.0.3"
   },
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-modular-tasks": "^1.0.4"
+    "gulp": "^3.9.0",
+    "gulp-modular-tasks": "^1.0.5"
   }
 }
