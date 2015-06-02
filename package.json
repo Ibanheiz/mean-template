@@ -53,6 +53,6 @@
   },
   "devDependencies": {
     "gulp": "^3.8.10",
-    "gulp-modular-tasks": "^1.0.1"
+    "gulp-modular-tasks": "^1.0.4"
   }
 }

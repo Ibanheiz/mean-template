@@ -33,6 +33,74 @@
     }]
   };
 
+  function routerConfig($routeProvider, $locationProvider) {
+    authenticationProvider.setTeste('locoooo');
+    console.log(authenticationProvider.$get().teste);
+    $routeProvider.
+      when('/mean-seed/login', {
+        templateUrl: 'expose/login/login',
+        controller: 'LoginController',
+        resolve: {
+          loggedin: auth.checkLoggedOut
+        }
+      }).
+      when('/mean-seed/signup', {
+        templateUrl: 'expose/login/signup',
+        controller: 'SignupController',
+        resolve: {
+          loggedin: auth.checkLoggedOut
+        }
+      }).
+      when('/mean-seed/client', {
+        templateUrl: 'expose/client/list',
+        controller: 'ClientListController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      when('/mean-seed/client/create', {
+        templateUrl: 'expose/client/save',
+        controller: 'ClientCreateController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      when('/mean-seed/client/:id/edit', {
+        templateUrl: 'expose/client/save',
+        controller: 'ClientEditController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      when('/mean-seed/client/:id/remove', {
+        templateUrl: 'expose/client/edit',
+        controller: 'ClientRemoveController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      when('/mean-seed/user', {
+        templateUrl: 'expose/user/list',
+        controller: 'UserController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      when('/mean-seed/404', {
+        templateUrl: 'expose/main/404',
+        controller: 'UserController',
+        resolve: {
+          loggedin: auth.checkLoggedin
+        }
+      }).
+      otherwise({
+        redirectTo: '/mean-seed/404'
+      });
+    $locationProvider.html5Mode(true);
+  }
+
+  routerConfig.$inject = ['$routeProvider', '$locationProvider'];
+
   angular.module('app', [
     'app.controllers',
     'app.directives',
@@ -43,69 +111,6 @@
     'ngResource',
     'ngAnimate'
   ])
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-      $routeProvider.
-        when('/mean-seed/login', {
-          templateUrl: 'expose/login/login',
-          controller: 'LoginController',
-          resolve: {
-            loggedin: auth.checkLoggedOut
-          }
-        }).
-        when('/mean-seed/signup', {
-          templateUrl: 'expose/login/signup',
-          controller: 'SignupController',
-          resolve: {
-            loggedin: auth.checkLoggedOut
-          }
-        }).
-        when('/mean-seed/client', {
-          templateUrl: 'expose/client/list',
-          controller: 'ClientListController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        when('/mean-seed/client/create', {
-          templateUrl: 'expose/client/save',
-          controller: 'ClientCreateController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        when('/mean-seed/client/:id/edit', {
-          templateUrl: 'expose/client/save',
-          controller: 'ClientEditController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        when('/mean-seed/client/:id/remove', {
-          templateUrl: 'expose/client/edit',
-          controller: 'ClientRemoveController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        when('/mean-seed/user', {
-          templateUrl: 'expose/user/list',
-          controller: 'UserController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        when('/mean-seed/404', {
-          templateUrl: 'expose/main/404',
-          controller: 'UserController',
-          resolve: {
-            loggedin: auth.checkLoggedin
-          }
-        }).
-        otherwise({
-          redirectTo: '/mean-seed/404'
-        });
-      $locationProvider.html5Mode(true);
-    }]);
+    .config(routerConfig);
 }(angular));
 
