@@ -34,8 +34,6 @@
   };
 
   function routerConfig($routeProvider, $locationProvider) {
-    authenticationProvider.setTeste('locoooo');
-    console.log(authenticationProvider.$get().teste);
     $routeProvider.
       when('/mean-seed/login', {
         templateUrl: 'expose/login/login',
