@@ -21,6 +21,12 @@
           scope.dialogStyle.paddingTop =  attrs.padding;
           scope.dialogStyle.paddingBottom =  attrs.padding;
         }
+
+        // Gambis para não mostrar modal ao carregar a tela
+        setTimeout(function () {
+          element.removeAttr('style');
+        }, 1000);
+
         scope.hideModal = function () {
           scope.show = false;
         };

@@ -106,10 +106,10 @@
     'app.services',
     'app.factorys',
     'app.constants',
+    'ngAnimate',
     'ngSanitize',
     'ngRoute',
-    'ngResource',
-    'ngAnimate'
+    'ngResource'
   ])
     .config(routerConfig);
 }(angular));

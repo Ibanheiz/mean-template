@@ -10,6 +10,15 @@ h1
   color title-color
   margin 30px 0
 
+.ng-modal
+  transition(all, 0.5s, linear)
+  opacity(0.9)
+  visibility visible
+
+.ng-modal.ng-hide
+  visibility hidden
+  opacity(0)
+
 .ng-modal-dialog
   min-height 100px
   z-index 10000
@@ -21,8 +30,6 @@ h1
   padding 0 20px
   color #fff
   gradient-linear(#1390DD, #47A5E0)
-  transition(all, 0.9s, linear)
-  opacity(0.9)
 
 .button
   width 100px
