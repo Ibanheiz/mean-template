@@ -2,21 +2,18 @@
   'use strict';
 
   var _login = {
-    getHome: function () {
-      return 'mean-seed/client';
-    },
-    cbCreateSucess: function (data, $scope, $timeout, $location) {
+    cbCreateSucess: function (data, $scope, $timeout, $location, systemUri) {
       $scope.message = 'Usuário cadastrado com sucesso';
       $scope.user = {};
-      $location.url(_login.getHome());
+      $location.url(systemUri.getHome());
       _login.showModal($scope, $timeout);
     },
-    cbValidateLogin: function (data, $scope, $timeout, $location) {
+    cbValidateLogin: function (data, $scope, $timeout, $location, systemUri) {
       console.log(data.data);
       var user = data.data.user;
       if (user) {
         console.log(user);
-        $location.url(_login.getHome());
+        $location.url(systemUri.getHome());
       } else {
         console.log(data.data.message);
         $scope.message = data.data.message;
@@ -40,12 +37,13 @@
   };
 
   // Functions
-  function LoginController($scope, $http, $timeout, $location, LoginService) {
+  function LoginController($scope, $http, $timeout, $location, LoginService, systemUri) {
     $scope.showModal = false;
+    $scope.systemUri = systemUri;
 
     $scope.login = function (user) {
       LoginService.login(user).then(function (data) {
-        _login.cbValidateLogin(data, $scope, $timeout, $location);
+        _login.cbValidateLogin(data, $scope, $timeout, $location, systemUri);
       }, function (err) {
         _login.cbError('Erro ao efetuar Login.', err, $scope);
       });
@@ -54,19 +52,21 @@
     $scope.signout = function () {
       LoginService.signout().then(function (data) {
         console.log(data);
-        $location.url('mean-seed/login');
+        $location.url(systemUri.getLogin());
       }, function (err) {
         _login.cbError('Erro ao efetuar logout.', err, $scope);
       });
     };
   }
 
-  function SignupController($scope, $http, $timeout, $location, LoginService) {
+  function SignupController($scope, $http, $timeout, $location, LoginService, systemUri) {
     $scope.showModal = false;
+    $scope.systemUri = systemUri;
+
     $scope.createUser = function (user) {
       if (_login.validatePassword(user)) {
         LoginService.create(user).then(function (data) {
-          _login.cbCreateSucess(data, $scope, $timeout, $location);
+          _login.cbCreateSucess(data, $scope, $timeout, $location, systemUri);
         }, function (err) {
           _login.cbError('Erro ao criar o usuário.', err, $scope);
         });
@@ -83,8 +83,8 @@
     .controller('SignupController', SignupController);
 
   // Inject
-  LoginController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService' ];
-  SignupController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService'];
+  LoginController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService', 'systemUri'];
+  SignupController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService', 'systemUri'];
 
 }(angular));
 

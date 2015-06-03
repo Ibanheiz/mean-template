@@ -40,5 +40,5 @@ div.form
       input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
 include ../../main/views/modal
 div.default-link
-  a(href='/mean-seed/client/') Voltar
+  a(data-ng-href='{{systemUri.getHome()}}') Voltar
 div {{status}}

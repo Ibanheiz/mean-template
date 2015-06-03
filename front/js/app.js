@@ -11,21 +11,21 @@
     return deferred.promise;
   }
   var auth = {
-    checkLoggedin: ['$q', '$http', '$location', function ($q, $http, $location) {
+    checkLoggedin: ['$q', '$http', '$location', 'systemUri', function ($q, $http, $location, systemUri) {
       checkUser($q, $http, function (deferred, user) {
         if (user !== '0') {
           deferred.resolve();
         } else {
           deferred.reject();
-          $location.url('/mean-seed/login');
+          $location.url(systemUri.getLogin());
         }
       });
     }],
-    checkLoggedOut: ['$q', '$http', '$location', function ($q, $http, $location) {
+    checkLoggedOut: ['$q', '$http', '$location', 'systemUri', function ($q, $http, $location, systemUri) {
       checkUser($q, $http, function (deferred, user) {
         if (user !== '0') {
           deferred.reject();
-          $location.url('/mean-seed/client');
+          $location.url(systemUri.getHome());
         } else {
           deferred.resolve();
         }
@@ -33,58 +33,58 @@
     }]
   };
 
-  function routerConfig($routeProvider, $locationProvider) {
+  function routerConfig($routeProvider, $locationProvider, systemUriConfig) {
     $routeProvider.
-      when('/mean-seed/login', {
+      when(systemUriConfig.getLogin, {
         templateUrl: 'expose/login/login',
         controller: 'LoginController',
         resolve: {
           loggedin: auth.checkLoggedOut
         }
       }).
-      when('/mean-seed/signup', {
+      when(systemUriConfig.getSignup, {
         templateUrl: 'expose/login/signup',
         controller: 'SignupController',
         resolve: {
           loggedin: auth.checkLoggedOut
         }
       }).
-      when('/mean-seed/client', {
+      when(systemUriConfig.getHome, {
         templateUrl: 'expose/client/list',
         controller: 'ClientListController',
         resolve: {
           loggedin: auth.checkLoggedin
         }
       }).
-      when('/mean-seed/client/create', {
+      when(systemUriConfig.getCreateClient, {
         templateUrl: 'expose/client/save',
         controller: 'ClientCreateController',
         resolve: {
           loggedin: auth.checkLoggedin
         }
       }).
-      when('/mean-seed/client/:id/edit', {
+      when(systemUriConfig.getEditClient, {
         templateUrl: 'expose/client/save',
         controller: 'ClientEditController',
         resolve: {
           loggedin: auth.checkLoggedin
         }
       }).
-      when('/mean-seed/client/:id/remove', {
-        templateUrl: 'expose/client/edit',
+      when(systemUriConfig.getRemoveClient, {
+        templateUrl: 'expose/client/remove',
         controller: 'ClientRemoveController',
         resolve: {
           loggedin: auth.checkLoggedin
         }
       }).
-      when('/mean-seed/user', {
+      when(systemUriConfig.getUser, {
         templateUrl: 'expose/user/list',
         controller: 'UserController',
         resolve: {
           loggedin: auth.checkLoggedin
         }
       }).
-      when('/mean-seed/404', {
+      when(systemUriConfig.get404, {
         templateUrl: 'expose/main/404',
         controller: 'UserController',
         resolve: {
@@ -92,18 +92,20 @@
         }
       }).
       otherwise({
-        redirectTo: '/mean-seed/404'
+        redirectTo: systemUriConfig.get404
       });
     $locationProvider.html5Mode(true);
   }
 
-  routerConfig.$inject = ['$routeProvider', '$locationProvider'];
+  routerConfig.$inject = ['$routeProvider', '$locationProvider', 'systemUriConfig'];
 
   angular.module('app', [
     'app.controllers',
     'app.directives',
     'app.filters',
     'app.services',
+    'app.factorys',
+    'app.constants',
     'ngSanitize',
     'ngRoute',
     'ngResource',

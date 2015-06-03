@@ -17,7 +17,7 @@ div.table-client-container
         td {{client.telefone}}
         td {{client.data | date:'dd/MM/yyyy HH:mm'}}
         td
-          a(href='/mean-seed/client/{{client._id}}/edit')
+          a(data-ng-href='{{systemUri.getEditClient(client._id)}}')
             img(src="./image/icon-edit.png", alt="Editar", title="Editar Cliente", width="22", height="22")
         td
           span(data-ng-controller="ClientRemoveController", style="cursor: pointer")
@@ -25,7 +25,7 @@ div.table-client-container
               img(src="./image/icon-remove.png", alt="Remover", title="Remover Cliente", width="22", height="22")
   div.empty-message(data-ng-hide='clients.length > 0') Não há Clientes cadastrados
 div.button-novo-cliente
-  a(href='/mean-seed/client/create') Novo
+  a(data-ng-href='{{systemUri.getCreateClient()}}') Novo
 div.default-link(data-ng-controller="LoginController")
   a(data-ng-click="signout()") Fazer Logout
 div {{status}}
