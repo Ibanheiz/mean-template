@@ -56,7 +56,7 @@ gulp.task('livereload', modularGulp.createTask('watch', watchers, 'back/modules/
 gulp.task('imageopt', modularGulp.createTask('imageopt', 'front/image/original/*.*', 'front/image'));
 
 // Roda os testes criados com o jasmine
-gulp.task('jasmine', modularGulp.createTask('jasmine', 'back/test/*Spec.js'));
+gulp.task('jasmine', modularGulp.createTask('jasmine', 'back/test/*Spec.js', 'test'));
 
 // Roda com o comando 'gulp' no prestart da aplicação
-gulp.task('default', ['build:stylus', 'minify-concat:js', 'bower-concat', 'copy-bower-map', 'nodemon', 'livereload', 'jasmine']);
+gulp.task('default', ['build:stylus', 'minify-concat:js', 'bower-concat', 'copy-bower-map', 'nodemon', 'livereload']);

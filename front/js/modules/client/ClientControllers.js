@@ -53,10 +53,7 @@
       }
     },
     isCadastro: function ($scope) {
-      if (angular.isUndefined($scope.client)) {
-        return true;
-      }
-      if (angular.isUndefined($scope.client._id)) {
+      if (angular.isUndefined($scope.client) || angular.isUndefined($scope.client._id)) {
         return true;
       }
       return false;

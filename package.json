@@ -5,7 +5,7 @@
   "main": "back/bin/www",
   "scripts": {
     "prestart": "gulp",
-    "test": "jasmine-node back/test/",
+    "test": "gulp jasmine",
     "start": "node back/bin/www",
     "debug": "node-debug --web-port=7070 back/bin/www"
   },
@@ -55,8 +55,12 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-modular-tasks": "^1.0.6",
+    "gulp-modular-tasks": "^1.0.8",
+    "jasmine-core": "^2.3.4",
     "jasmine-expect": "^2.0.0-beta1",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5",
     "should": "^6.0.3",
     "stylus": "^0.50.0",
     "stylus-type-utils": "0.0.3"
