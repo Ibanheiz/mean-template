@@ -1,0 +1,2 @@
+mongoimport -d mean-seed-test -c users --file users.json --drop
+mongoimport -d mean-seed-test -c clients --file clients.json --drop

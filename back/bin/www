@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-var config = require('./../config/config')();
 var http = require('http');
 var app = require('./../app');
 var mongoose = require('mongoose');
+var config = require('./../config/config')();
 require('./../config/conexao')(config.db, mongoose);
 
 app.set('port', config.port);

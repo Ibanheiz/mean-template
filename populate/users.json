@@ -1,0 +1,4 @@
+{ "_id" : { "$oid" : "551a34a38a59428459c0356c" }, "data" : { "$date" : "2015-03-31T02:46:11.442-0300" }, "password" : "$2a$10$uQJjIXwnpCME/.xzDjxKPepmYGIkqsyBvCUbyK6doLsYCYlt8nTI.", "email" : "nicolas-ibanheiz@hotmail.com", "username" : "ibanheiz", "__v" : 0 }
+{ "_id" : { "$oid" : "556e828b1d8d72aa0d3b5674" }, "data" : { "$date" : "2015-06-03T01:28:59.075-0300" }, "password" : "$2a$10$OOiyEmyVLGATncVFHTAsZenbeurrB9A/kJEy0c1wcVsb/3dP8Rti2", "email" : "Teste@teste", "username" : "Teste", "__v" : 0 }
+{ "_id" : { "$oid" : "556e830c9665d2650f2aa4bd" }, "data" : { "$date" : "2015-06-03T01:31:08.178-0300" }, "password" : "$2a$10$M5UzREmwRkBQkr.nIBqFD.4vJKVMX6utLD0nkR/AAHrJKeWWfa7PC", "email" : "oi@oi", "username" : "oi", "__v" : 0 }
+{ "_id" : { "$oid" : "556e8946f486cd921e612317" }, "data" : { "$date" : "2015-06-03T01:57:42.042-0300" }, "password" : "$2a$10$WeBcHBNvrEbEmv/jNcRsGevlQtf7626YU7u1.12RAzpDhmPZ3e2A.", "email" : "ad@asd", "username" : "asd", "__v" : 0 }

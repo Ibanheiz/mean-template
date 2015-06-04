@@ -52,11 +52,11 @@ gulp.task('nodemon', modularGulp.createTask('nodemon', 'back/bin/www'));
 // Ativa o liveloread e cria watchers para as pages em jade
 gulp.task('livereload', modularGulp.createTask('watch', watchers, 'back/modules/**/views/*.jade'));
 
-// Roda os testes em mocha
-gulp.task('mocha', modularGulp.createTask('mocha', 'back/test/**/*.js'));
-
 // Optimiza as imagens
 gulp.task('imageopt', modularGulp.createTask('imageopt', 'front/image/original/*.*', 'front/image'));
 
+// Roda os testes criados com o jasmine
+gulp.task('jasmine', modularGulp.createTask('jasmine', 'back/test/*Spec.js'));
+
 // Roda com o comando 'gulp' no prestart da aplicação
-gulp.task('default', ['build:stylus', 'minify-concat:js', 'bower-concat', 'copy-bower-map', 'nodemon', 'livereload']);
+gulp.task('default', ['build:stylus', 'minify-concat:js', 'bower-concat', 'copy-bower-map', 'nodemon', 'livereload', 'jasmine']);

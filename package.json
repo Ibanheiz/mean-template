@@ -5,6 +5,7 @@
   "main": "back/bin/www",
   "scripts": {
     "prestart": "gulp",
+    "test": "jasmine-node back/test/",
     "start": "node back/bin/www",
     "debug": "node-debug --web-port=7070 back/bin/www"
   },
@@ -50,12 +51,14 @@
     "passport-local": "^1.0.0",
     "sequencify": "0.0.7",
     "serve-favicon": "^2.1.6",
-    "stream-consume": "^0.1.0",
-    "stylus": "^0.50.0",
-    "stylus-type-utils": "0.0.3"
+    "stream-consume": "^0.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-modular-tasks": "^1.0.5"
+    "gulp-modular-tasks": "^1.0.6",
+    "jasmine-expect": "^2.0.0-beta1",
+    "should": "^6.0.3",
+    "stylus": "^0.50.0",
+    "stylus-type-utils": "0.0.3"
   }
 }

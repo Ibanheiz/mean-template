@@ -1,0 +1,4 @@
+{ "_id" : { "$oid" : "5514dd1fb21ea438272381b2" }, "cnpj" : 1122334455, "telefone" : 1199999999, "data" : { "$date" : "2015-03-27T01:31:27.759-0300" }, "razaoSocial" : "Ibanheiz LTDA", "__v" : 0 }
+{ "_id" : { "$oid" : "5514dd23b21ea438272381b4" }, "cnpj" : 1122334455, "telefone" : 1199999999, "data" : { "$date" : "2015-03-27T01:31:31.597-0300" }, "razaoSocial" : "Nicolas LTDA", "__v" : 0 }
+{ "_id" : { "$oid" : "5514dd27b21ea438272381ba" }, "cnpj" : 1122334455, "telefone" : 1199999999, "data" : { "$date" : "2015-03-27T01:31:35.760-0300" }, "razaoSocial" : "Souza LTDA", "__v" : 0 }
+{ "_id" : { "$oid" : "556e8cf3a41e351528411e24" }, "cpf" : null, "cnpj" : 1231, "telefone" : 324234, "data" : { "$date" : "2015-06-03T02:13:23.224-0300" }, "razaoSocial" : "Teste Lindo", "__v" : 0 }
