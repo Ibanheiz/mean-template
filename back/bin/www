@@ -6,7 +6,7 @@ var config = require('./../config/config')();
 require('./../config/conexao')(config.db, mongoose);
 
 app.set('port', config.port);
-var server = app.listen(app.get('port'), config.address, function() {
+var server = app.listen(app.get('port'), function() {
   console.log('Express Https Server '+ config.address + ' (' + config.env + ') escutando na porta ' + config.port);
 });
 

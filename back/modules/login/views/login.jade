@@ -1,17 +1,17 @@
-h1 Efetuar Login
-div.form-login
-  form(name="form_login", data-ng-submit="login(user)")
-    div.column-label
-      label(for="username") Usuário
-    div.column-input
-      input(type="text", name="username", data-ng-model="user.username", required)
-    div.column-label
-      label(for="password") Senha
-    div.column-input
-      input(type="password", name="password", data-ng-model="user.password", required)
-    div.button-container-login
-      input.button-login(type="submit", value="Entrar")
-      div.link-singup
-        a(data-ng-href='{{systemUri.getSignup()}}') Cadastre-se
+h1.atom-title-page Efetuar Login
+div
+  form.molecule-form-login(name="form_login", data-ng-submit="login(user)")
+    div
+      label.atom-label-login(for="username") Usuário
+    div
+      input.atom-input-login(type="text", name="username", data-ng-model="user.username", required)
+    div
+      label.atom-label-login(for="password") Senha
+    div
+      input.atom-input-login(type="password", name="password", data-ng-model="user.password", required)
+    div.atom-grid-between
+      input.atom-button-login(type="submit", value="Entrar")
+      div
+        a.atom-link-login(data-ng-href='{{systemUri.getSignup()}}') Cadastre-se
 include ../../main/views/modal
 div {{status}}

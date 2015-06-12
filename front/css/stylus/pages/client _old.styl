@@ -1,0 +1,73 @@
+.table-client
+  width 50%
+
+.table-client
+  text-align center
+  padding 0
+  font-family arial, verdana;
+
+.table-client img
+  margin-top 5px
+
+.table-client thead tr
+  background default-color
+  color #fff
+  height 40px
+  border 1px solid #ccc
+  gradient-linear(default-color, #47A5E0)
+
+.odd-row
+  background #fff
+  color #333
+  height 40px
+  transition(all, 0.4s, linear)
+
+.even-row
+  @extends .odd-row
+  gradient-linear(#eee, #f4f4f4)
+  transition(all, 0.4s, linear)
+
+.odd-row:hover,
+.even-row:hover
+  background #bfdef2
+  cursor default
+  transition(all, 0.4s, linear)
+
+.table-client tbody td
+  border 1px solid #ccc
+
+.button-novo-cliente
+  gradient-linear(default-color, #47A5E0)
+  @extends .button
+
+.button-novo-cliente:hover
+  @extends .button-hover
+
+.button-save-cliente
+  gradient-linear(#0c8e31, #30b245)
+  @extends .button
+
+.button-novo-cliente a
+  color #fff
+  display block
+
+.button-container-cliente
+  width 220px
+  @extends .grid-between
+
+.button-save-cliente:hover
+  @extends .button-hover
+
+.button-cancel-cliente
+  gradient-linear(#b21c26, #d8202c)
+  @extend .button
+
+.button-cancel-cliente:hover
+  @extends .button-hover
+
+.empty-message
+  width 55%;
+  height 45px
+  line-height 45px
+  text-align center
+  border 1px solid #ccc

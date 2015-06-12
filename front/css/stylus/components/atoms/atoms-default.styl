@@ -1,0 +1,80 @@
+$atom-button
+  width 100%
+  height 50px
+  background-color $primary-color
+  border none
+  color $icons-text-color
+  font-size rem(20px)
+  padding 0
+  margin 0
+  @extends $animation-ease
+
+  @media (min-width $tablet-size)
+    width 70%
+    border-radius 3px
+
+  @media (min-width $desktop-size)
+    width 100px
+    height 35px
+    font-size rem(18px)
+
+$atom-button-hover
+  background-color $dark-primary-color
+  cursor pointer
+  @extends $animation-ease
+
+$atom-input
+  width 100%
+  height 50px
+  border 1px solid $light-text-color
+  color $secundary-text-color
+  background-color #FFF
+  font-size rem(20px)
+  padding 0 5px
+  margin 0
+  outline none
+  @extends $animation-ease
+
+  @media (min-width $tablet-size)
+    width 70%
+    border-radius 3px
+
+  @media (min-width $desktop-size)
+    width 400px
+    height 40px
+    font-size rem(18px)
+
+$atom-input-focus
+  @extends $animation-ease
+  outline $light-primary-color solid 3px
+
+$atom-label
+  font-size rem(20px)
+  color $primary-text-color
+  @extends $animation-ease
+
+  @media (min-width $tablet-size)
+    font-size rem(22px)
+
+  @media (min-width $desktop-size)
+    font-size rem(18px)
+
+$atom-title
+  font-size rem(30px)
+  color $primary-color
+  margin 0 auto
+  @extends $animation-ease
+
+  @media (min-width $tablet-size)
+    font-size rem(35px)
+
+  @media (min-width $desktop-size)
+    font-size rem(40px)
+
+$atom-link
+  font-size rem(18px)
+  color $secundary-text-color
+  display inline-block
+
+$atom-link-hover
+  text-decoration underline

@@ -58,57 +58,31 @@ align-center-vertical(height, unit)
   top 50%
 
 // Animation para inputs
-.animation-ease
+$animation-ease
   -webkit-transition all .5s ease
   -moz-transition all .5s ease
   transition all .5s ease
 
 // Utilizada para exibir qualquer input via js
-.input-show
+$input-show
   visibility visible !important
   opacity 0.95 !important
-  @extends .animation-ease
+  @extends $animation-ease
 
 // Utilizada como herança para esconder qualquer input
-.input-hide
+$input-hide
   visibility hidden
   opacity 0
-  @extends .animation-ease
+  @extends $animation-ease
 
 // Utilizada para exibir qualquer div via js
-.div-show
+$div-show
   visibility visible !important
   opacity 0.95 !important
   transition(all, 0.4s, linear)
 
 // Utilizada como herança para esconder qualquer div
-.div-hide
+$div-hide
   visibility hidden
   opacity 0
   transition(all, 0.4s, linear)
-
-// Grids
-.grid-around
-  display flex
-  justify-content space-around
-
-
-.grid-between
-  display flex
-  justify-content space-between
-
-
-.grid-start
-  display flex
-  justify-content flex-start
-
-
-.grid-end
-  display flex
-  justify-content flex-end
-
-
-.grid-reverse
-  display flex
-  justify-content flex-start
-  flexbox-direction row-reverse
