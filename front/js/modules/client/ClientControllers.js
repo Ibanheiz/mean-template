@@ -22,7 +22,7 @@
       $scope.client = data.data;
       var client = $scope.client;
       $scope.title = "Alterando o Cliente " + $scope.client.razaoSocial;
-      $scope.pessoa = (client.cpf && client.cpf !== '') ? 'fisica' : 'juridica';
+      $scope.client.pessoa = (client.cpf && client.cpf !== '') ? 'fisica' : 'juridica';
       $scope.message = 'Cliente ' + $scope.client.razaoSocial + ' sendo exibido';
       _client.copy($scope);
     },
@@ -48,7 +48,7 @@
       });
     },
     isPessoaFisica: function ($scope) {
-      if ($scope.pessoa === 'fisica') {
+      if (angular.isDefined($scope.client) && $scope.client.pessoa === 'fisica') {
         return true;
       }
     },
@@ -64,7 +64,6 @@
     },
     copy: function ($scope) {
       $scope.clientCopy = angular.copy($scope.client);
-      $scope.pessoaCopy  = angular.copy($scope.pessoa);
     },
     showModal: function ($scope, $timeout) {
       $scope.showModal = !$scope.showModal;
@@ -85,7 +84,8 @@
 
   function ClientCreateController($scope, $timeout, ClientService) {
     $scope.title = "Novo Cliente";
-    $scope.pessoa = 'fisica';
+    $scope.client = {};
+    $scope.client.pessoa = 'fisica';
     $scope.showModal = false;
 
     $scope.save = function (client) {
@@ -130,8 +130,9 @@
 
     $scope.cancel = function () {
       $scope.readonly = true;
-      angular.copy($scope.clientCopy, $scope.client);
-      angular.copy($scope.pessoaCopy, $scope.pessoa);
+      if (!angular.equals($scope.clientCopy, $scope.client)) {
+        angular.copy($scope.clientCopy, $scope.client);
+      }
     };
 
     $scope.isPessoaFisica = function () {

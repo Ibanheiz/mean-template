@@ -46,7 +46,13 @@ $atom-input
 
 $atom-input-focus
   @extends $animation-ease
-  outline $light-primary-color solid 3px
+  box-shadow: 0 0 2px $light-primary-color solid
+
+$atom-input-focus-valid
+  box-shadow: 0 0 2px #0f0
+
+$atom-input-focus-invalid
+  box-shadow: 0 0 2px #f00
 
 $atom-label
   font-size rem(20px)

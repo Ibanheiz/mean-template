@@ -1,27 +1,27 @@
-h1 Cadastre-se no Mean Seed
+h1.atom-title-page Cadastre-se no Mean Seed
 
-div.form
-  form(name="form_signup", data-ng-submit="createUser(user)")
-    div.column-label
-      label(for="username") Usuário
-    div.column-input
-      input(type="text", name="username", data-ng-model="user.username", required)
-    div.column-label
-      label(for="email") Email
-    div.column-input
-      input(type="email", name="email", data-ng-model="user.email", required)
-    div.column-label
-      label(for="password") Senha
-    div.column-input
-      input(type="password", name="password", data-ng-model="user.password", required)
-    div.column-label
-      label(for="confirmPassword") Confirmar senha
-    div.column-input
-      input(type="password", name="confirmPassword", data-ng-model="user.confirmPassword", required)
+div
+  form.molecule-form-sigup(name="form_signup", data-ng-submit="createUser(user)")
+    div
+      label.atom-label-sigup(for="username") Usuário
+    div
+      input.atom-input-sigup(type="text", name="username", data-ng-model="user.username", required)
+    div
+      label.atom-label-sigup(for="email") Email
+    div
+      input.atom-input-sigup(type="email", name="email", data-ng-model="user.email", required)
+    div
+      label.atom-label-sigup(for="password") Senha
+    div
+      input.atom-input-sigup(type="password", name="password", data-ng-model="user.password", required)
+    div
+      label.atom-label-sigup(for="confirmPassword") Confirmar senha
+    div
+      input.atom-input-sigup(type="password", name="confirmPassword", data-ng-model="user.confirmPassword", required)
     div.button-container-signup
-      input.button-signup(type="submit", value="Cadastrar")
+      input.atom-button-sigup(type="submit", value="Cadastrar")
 
 include ../../main/views/modal
-div.default-link
-  a(data-ng-href='{{systemUri.getLogin()}}') Voltar
+div
+  a.atom-link-sigup(data-ng-href='{{systemUri.getLogin()}}') Voltar
 div {{status}}

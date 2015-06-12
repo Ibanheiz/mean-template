@@ -1,43 +1,43 @@
-h1 {{title}}
-div.form
+h1.atom-title-page {{title}}
+div.molecule-form-save
   form(name="form_cliente", data-ng-submit="save(client)")
-    div.column-label
-      label(for="razaoSocial") Razão Social
-    div.column-input
-      input(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", data-ng-disabled="readonly", required)
+    div
+      label.atom-label-save(for="razaoSocial") Razão Social
+    div
+      input.atom-input-save(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", data-ng-disabled="readonly", required)
 
     div.container-documento
       div.radio-container
-        input(type="radio", data-ng-model="pessoa", value="fisica"
+        input(type="radio", data-ng-model="client.pessoa", value="fisica"
               data-ng-click="resetCpfCnpj()",data-ng-disabled="readonly")
-        label(for="pessoa") Física
-        input(type="radio", data-ng-model="pessoa", value="juridica"
+        label.atom-label-save(for="pessoa") Física
+        input(type="radio", data-ng-model="client.pessoa", value="juridica"
               data-ng-click="resetCpfCnpj()", data-ng-disabled="readonly")
-        label(for="pessoa") Jurídica
+        label.atom-label-save(for="pessoa") Jurídica
 
       div(data-ng-hide="!isPessoaFisica()")
-        div.column-label
-          label(for="cpf") CPF
-        div.column-input
-          input(type="text", name="cpf", data-ng-model="client.cpf", data-ng-disabled="readonly",
+        div
+          label.atom-label-save(for="cpf") CPF
+        div
+          input.atom-input-save(type="text", name="cpf", data-ng-model="client.cpf", data-ng-disabled="readonly",
                 data-ng-required="isPessoaFisica()")
       div(data-ng-hide="isPessoaFisica()")
-        div.column-label
-          label(for="cnpj") CNPJ
-        div.column-input
-          input(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-disabled="readonly",
+        div
+          label.atom-label-save(for="cnpj") CNPJ
+        div
+          input.atom-input-save(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-disabled="readonly",
                 data-ng-required="!isPessoaFisica()")
 
-    div.column-label
-      label(for="telefone") Telefone
-    div.column-input
-      input(type="text", name="telefone", data-ng-disabled="readonly" data-ng-model="client.telefone", required)
-    div.button-container-cliente(data-ng-hide="!readonly")
-      input.button-novo-cliente(type="button", value="Editar", data-ng-click="edit()")
+    div
+      label.atom-label-save(for="telefone") Telefone
+    div
+      input.atom-input-save(type="text", name="telefone", data-ng-disabled="readonly" data-ng-model="client.telefone", required)
+    div(data-ng-hide="!readonly")
+      input.atom-button-edit(type="button", value="Editar", data-ng-click="edit()")
 
-    div.button-container-cliente(data-ng-hide="readonly")
-      input.button-save-cliente(type="submit", value="Salvar")
-      input.button-cancel-cliente(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
+    div.atom-grid-between(data-ng-hide="readonly")
+      input.atom-button-salvar(type="submit", value="Salvar")
+      input.atom-button-cancelar(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
 include ../../main/views/modal
 div.default-link
   a(data-ng-href='{{systemUri.getHome()}}') Voltar
