@@ -75,8 +75,7 @@
   };
 
   // Functions
-  function ClientListController($scope, ClientService, systemUri) {
-    $scope.systemUri = systemUri;
+  function ClientListController($scope, ClientService) {
     ClientService.findAll().then(function (data) {
       _client.cbFindAllSucess(data, $scope);
     }, function (err) {
@@ -84,11 +83,10 @@
     });
   }
 
-  function ClientCreateController($scope, $timeout, ClientService, systemUri) {
+  function ClientCreateController($scope, $timeout, ClientService) {
     $scope.title = "Novo Cliente";
     $scope.pessoa = 'fisica';
     $scope.showModal = false;
-    $scope.systemUri = systemUri;
 
     $scope.save = function (client) {
       ClientService.create(client).then(function (data) {
@@ -111,11 +109,10 @@
     };
   }
 
-  function ClientEditController($scope, $routeParams, $timeout, ClientService, systemUri) {
+  function ClientEditController($scope, $routeParams, $timeout, ClientService) {
     var service = ClientService;
     $scope.readonly = true;
     $scope.showModal = false;
-    $scope.systemUri = systemUri;
 
     _client.findClienteById(service, $scope, $routeParams);
 
@@ -176,9 +173,9 @@
     .controller('ClientShowController', ClientShowController);
 
   // Inject
-  ClientListController.$inject = ['$scope', 'ClientService', 'systemUri'];
-  ClientCreateController.$inject = ['$scope', '$timeout', 'ClientService', 'systemUri'];
-  ClientEditController.$inject = ['$scope', '$routeParams', '$timeout', 'ClientService', 'systemUri'];
+  ClientListController.$inject = ['$scope', 'ClientService'];
+  ClientCreateController.$inject = ['$scope', '$timeout', 'ClientService'];
+  ClientEditController.$inject = ['$scope', '$routeParams', '$timeout', 'ClientService'];
   ClientRemoveController.$inject = ['$scope', 'ClientService'];
   ClientShowController.$inject = ['$scope', '$routeParams', 'ClientService'];
 

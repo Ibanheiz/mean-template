@@ -97,7 +97,12 @@
     $locationProvider.html5Mode(true);
   }
 
+  function run ($rootScope, systemUri) {
+    $rootScope.systemUri = systemUri;
+  }
+
   routerConfig.$inject = ['$routeProvider', '$locationProvider', 'systemUriConfig'];
+  run.$inject = ['$rootScope', 'systemUri'];
 
   angular.module('app', [
     'app.controllers',
@@ -111,6 +116,7 @@
     'ngRoute',
     'ngResource'
   ])
-    .config(routerConfig);
+    .config(routerConfig)
+    .run(run);
 }(angular));
 

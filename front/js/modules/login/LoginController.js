@@ -37,13 +37,12 @@
   };
 
   // Functions
-  function LoginController($scope, $http, $timeout, $location, LoginService, systemUri) {
+  function LoginController($scope, $http, $timeout, $location, LoginService) {
     $scope.showModal = false;
-    $scope.systemUri = systemUri;
 
     $scope.login = function (user) {
       LoginService.login(user).then(function (data) {
-        _login.cbValidateLogin(data, $scope, $timeout, $location, systemUri);
+        _login.cbValidateLogin(data, $scope, $timeout, $location, $scope.systemUri);
       }, function (err) {
         _login.cbError('Erro ao efetuar Login.', err, $scope);
       });
@@ -52,21 +51,20 @@
     $scope.signout = function () {
       LoginService.signout().then(function (data) {
         console.log(data);
-        $location.url(systemUri.getLogin());
+        $location.url($scope.systemUri.getLogin());
       }, function (err) {
         _login.cbError('Erro ao efetuar logout.', err, $scope);
       });
     };
   }
 
-  function SignupController($scope, $http, $timeout, $location, LoginService, systemUri) {
+  function SignupController($scope, $http, $timeout, $location, LoginService) {
     $scope.showModal = false;
-    $scope.systemUri = systemUri;
 
     $scope.createUser = function (user) {
       if (_login.validatePassword(user)) {
         LoginService.create(user).then(function (data) {
-          _login.cbCreateSucess(data, $scope, $timeout, $location, systemUri);
+          _login.cbCreateSucess(data, $scope, $timeout, $location, $scope.systemUri);
         }, function (err) {
           _login.cbError('Erro ao criar o usuário.', err, $scope);
         });
@@ -83,8 +81,8 @@
     .controller('SignupController', SignupController);
 
   // Inject
-  LoginController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService', 'systemUri'];
-  SignupController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService', 'systemUri'];
+  LoginController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService'];
+  SignupController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService'];
 
 }(angular));
 
