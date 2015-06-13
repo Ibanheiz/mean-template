@@ -3,4 +3,5 @@ build
 build/Release
 node_modules
 front/components
+front/js/min
 
