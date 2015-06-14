@@ -10,6 +10,7 @@ var styleFiles = 'front/css/stylus/*.styl',
   jsComponents = [
     'front/components/**/angular.min.js',
     'front/components/**/*min.js',
+    'front/components/**/dist/*min.js'
   ],
   jsComponentsMaps = [
     'front/components/**/*min.js.map',

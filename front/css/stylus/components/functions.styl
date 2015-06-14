@@ -67,6 +67,8 @@ $animation-ease
 $input-show
   visibility visible !important
   opacity 0.95 !important
+  -webkit-opacity 0.95 !important
+  -moz-opacity 0.95 !important
   @extends $animation-ease
 
 // Utilizada como herança para esconder qualquer input
@@ -76,13 +78,15 @@ $input-hide
   @extends $animation-ease
 
 // Utilizada para exibir qualquer div via js
-$div-show
+.div-show
   visibility visible !important
   opacity 0.95 !important
+  -webkit-opacity 0.95 !important
+  -moz-opacity 0.95 !important
   transition(all, 0.4s, linear)
 
 // Utilizada como herança para esconder qualquer div
-$div-hide
+.div-hide
   visibility hidden
   opacity 0
   transition(all, 0.4s, linear)

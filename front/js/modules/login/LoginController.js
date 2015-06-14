@@ -9,13 +9,10 @@
       _login.showModal($scope, $timeout);
     },
     cbValidateLogin: function (data, $scope, $timeout, $location, systemUri) {
-      console.log(data.data);
       var user = data.data.user;
       if (user) {
-        console.log(user);
         $location.url(systemUri.getHome());
       } else {
-        console.log(data.data.message);
         $scope.message = data.data.message;
         $scope.user.password = null;
         _login.showModal($scope, $timeout);
@@ -25,7 +22,6 @@
       return (user.confirmPassword === user.password);
     },
     cbError: function (message, error, $scope) {
-      console.log(error);
       $scope.status = message + ' ' + error.message;
     },
     showModal: function ($scope, $timeout) {
@@ -50,7 +46,6 @@
 
     $scope.signout = function () {
       LoginService.signout().then(function (data) {
-        console.log(data);
         $location.url($scope.systemUri.getLogin());
       }, function (err) {
         _login.cbError('Erro ao efetuar logout.', err, $scope);

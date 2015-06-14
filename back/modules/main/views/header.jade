@@ -1,2 +1,8 @@
 header.organism-header
   div.atom-title-header MEAN-Seed
+  div.icon-menu(data-ng-controller="MainController", data-ng-show="isAuthenticated()",
+    data-toggle-component data-target-id="menu-principal")
+    img(src="image/menu.png", alt="Menu")
+    div MENU
+div(data-ng-controller="MainController", data-ng-show="isAuthenticated()")
+  include menu

@@ -1,0 +1,31 @@
+.atom-th-thead
+  min-width 90px
+  min-height 50px
+  text-align center
+  color #FFF
+  background-color $primary-color
+
+  @media (min-width $tablet-size)
+    min-width 120px
+
+  @media (min-width $desktop-size)
+    min-width 140px
+
+.atom-th-small
+  min-width 80px !important
+
+.atom-td-tbody
+  padding 5px
+  text-align center
+  border-bottom 1px solid #CCC
+  border-left 1px solid #CCC
+  border-right  1px solid #CCC
+
+  @media (min-width $tablet-size)
+    min-width 120px
+
+  @media (min-width $desktop-size)
+    min-width 140px
+
+.atom-td-small
+  @extend .atom-th-small

@@ -18,3 +18,35 @@
 
 .atom-link-save:hover
   @extend $atom-link-hover
+
+.atom-link-nav
+  @extend $atom-link
+  color #FFF
+  width 100%
+  height 40px
+  margin-top 10px
+  padding 10px 0 0 10px
+
+  @media (min-width $desktop-size)
+    padding 0
+    width auto
+    height auto
+
+.atom-link-nav:hover
+  @extend $atom-link-hover
+  background $primary-color
+
+    @media (min-width $desktop-size)
+      background 0
+
+.atom-link-button
+  color #FFF
+  text-align center
+  padding-top 15px
+  display block
+  width 100%
+  height 100%
+  position relative
+
+  @media (min-width $desktop-size)
+    padding-top 9px

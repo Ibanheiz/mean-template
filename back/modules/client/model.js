@@ -3,9 +3,9 @@ module.exports = function (mongoose) {
 
   var ClientSchema = new Schema({
     razaoSocial: {type: String, default: ''},
-    cpf: {type: Number, min: 0},
-    cnpj: {type: Number, min: 0},
-    telefone: {type: Number, min: 0},
+    cpf: {type: String, default: ''},
+    cnpj: {type: String, default: ''},
+    telefone: {type: String, default: ''},
     data: { type: Date, default: Date.now }
   });
 

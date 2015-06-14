@@ -1,5 +1,11 @@
-nav.organism-simple-menu
-  ul.molecule-ul-menu
-    li.atom-li-menu Clientes
-    li.atom-li-menu Usuários
-    li.atom-li-menu Sair
+nav.organism-simple-nav
+  ul#menu-principal.molecule-ul-nav
+    li.atom-li-nav
+      a.atom-link-nav(data-ng-href="{{systemUri.getHome()}}",
+        data-toggle-component data-target-id="menu-principal") Clientes
+    li.atom-li-nav
+      a.atom-link-nav(href="#",
+        data-toggle-component data-target-id="menu-principal") Usuários
+    li.atom-li-nav
+      a.atom-link-nav(href="#", data-ng-controller="LoginController", data-ng-click="signout()",
+        data-toggle-component data-target-id="menu-principal") Sair

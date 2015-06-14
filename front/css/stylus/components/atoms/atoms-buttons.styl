@@ -4,6 +4,17 @@
 .atom-button-login:hover
   @extends $atom-button-hover
 
+.atom-button-novo
+  @extends $atom-button
+  margin-left 8px
+
+  @media (max-width $tablet-size)
+    margin-left 10px
+    width 97%
+
+.atom-button-novo:hover
+  @extends $atom-button-hover
+
 .atom-button-sigup
   @extends $atom-button
 
@@ -29,6 +40,10 @@
 .atom-button-cancelar
   @extends $atom-button
   background-color #F44336
+  margin-top 10px
+
+  @media (min-width $desktop-size)
+    margin-top 0
 
 .atom-button-cancelar:hover
   @extends $atom-button-hover

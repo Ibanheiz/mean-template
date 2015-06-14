@@ -1,0 +1,21 @@
+.molecule-ul-nav
+  position fixed
+  width 100%
+  top 50px
+  background-color $dark-primary-color
+  visibility hidden
+  opacity(0)
+  @extends $animation-ease
+
+  @media (min-width $tablet-size)
+    top 60px
+
+  @media (min-width $desktop-size)
+    @extends .atom-grid-around
+    width 300px
+    position absolute
+    right 30px
+    top 13px
+    background 0
+    visibility visible
+    opacity(1)

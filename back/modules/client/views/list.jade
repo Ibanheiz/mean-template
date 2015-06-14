@@ -1,31 +1,29 @@
-h1 Listagem de Clientes
-div.table-client-container
-  table.table-client
+h1.atom-title-page Clientes
+div
+  table.organism-simple-table
     thead
-      tr
-        th Razão Social
-        th CPF / CNPJ
-        th Telefone
-        th Data de Cadastro
-        th Editar
-        th Remover
+      tr.molecule-tr-thead
+        th.atom-th-thead Razão Social
+        th.atom-th-thead CPF / CNPJ
+        th.atom-th-thead Telefone
+        th.atom-th-thead Data de Cadastro
+        th.atom-th-thead.atom-th-small Editar
+        th.atom-th-thead.atom-th-small Remover
     tbody
-      tr(data-ng-repeat='client in clients', data-ng-class="{'odd-row': $index % 2 == 1, 'even-row': $index % 2 == 0}")
-        td {{client.razaoSocial}}
-        td(data-ng-hide='!client.cpf') {{client.cpf}}
-        td(data-ng-hide='!client.cnpj') {{client.cnpj}}
-        td {{client.telefone}}
-        td {{client.data | date:'dd/MM/yyyy HH:mm'}}
-        td
+      tr.molecule-tr-tbody(data-ng-repeat='client in clients', data-ng-class="{'odd-row': $index % 2 == 1, 'even-row': $index % 2 == 0}")
+        td.atom-td-tbody {{client.razaoSocial}}
+        td.atom-td-tbody(data-ng-hide='!client.cpf') {{client.cpf}}
+        td.atom-td-tbody(data-ng-hide='!client.cnpj') {{client.cnpj}}
+        td.atom-td-tbody {{client.telefone}}
+        td.atom-td-tbody {{client.data | date:'dd/MM/yyyy HH:mm'}}
+        td.atom-td-tbody.atom-td-small
           a(data-ng-href='{{systemUri.getEditClient(client._id)}}')
             img(src="./image/icon-edit.png", alt="Editar", title="Editar Cliente", width="22", height="22")
-        td
+        td.atom-td-tbody.atom-td-small
           span(data-ng-controller="ClientRemoveController", style="cursor: pointer")
             a(data-ng-click='remove(client)')
               img(src="./image/icon-remove.png", alt="Remover", title="Remover Cliente", width="22", height="22")
   div.empty-message(data-ng-hide='clients.length > 0') Não há Clientes cadastrados
-div.button-novo-cliente
-  a(data-ng-href='{{systemUri.getCreateClient()}}') Novo
-div.default-link(data-ng-controller="LoginController")
-  a(data-ng-click="signout()") Fazer Logout
+div.atom-button-novo
+  a.atom-link-button(data-ng-href='{{systemUri.getCreateClient()}}') Novo
 div {{status}}

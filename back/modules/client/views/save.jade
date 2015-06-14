@@ -4,7 +4,8 @@ div.molecule-form-save
     div
       label.atom-label-save(for="razaoSocial") Razão Social
     div
-      input.atom-input-save(type="text", name="razaoSocial", data-ng-model="client.razaoSocial", data-ng-disabled="readonly", required)
+      input.atom-input-save(type="text", name="razaoSocial", data-ng-model="client.razaoSocial",
+        data-ng-disabled="readonly", required, minlength="5", maxlength="50")
 
     div.container-documento
       div.radio-container
@@ -20,19 +21,20 @@ div.molecule-form-save
           label.atom-label-save(for="cpf") CPF
         div
           input.atom-input-save(type="text", name="cpf", data-ng-model="client.cpf", data-ng-disabled="readonly",
-                data-ng-required="isPessoaFisica()")
+                data-ng-required="isPessoaFisica()", data-mask='999.999.999-99', data-clean="true")
       div(data-ng-hide="isPessoaFisica()")
         div
           label.atom-label-save(for="cnpj") CNPJ
         div
           input.atom-input-save(type="text", name="cnpj", data-ng-model="client.cnpj", data-ng-disabled="readonly",
-                data-ng-required="!isPessoaFisica()")
+                data-ng-required="!isPessoaFisica()", data-mask='99.999.999/9999-99', data-clean="true")
 
     div
       label.atom-label-save(for="telefone") Telefone
     div
-      input.atom-input-save(type="text", name="telefone", data-ng-disabled="readonly" data-ng-model="client.telefone", required)
-    div(data-ng-hide="!readonly")
+      input.atom-input-save(type="tel", name="telefone", data-ng-disabled="readonly",
+        data-ng-model="client.telefone", required, mask='(99) 9999-9999', data-clean="true")
+    div(data-ng-hide="!readonly", pattern="")
       input.atom-button-edit(type="button", value="Editar", data-ng-click="edit()")
 
     div.atom-grid-between(data-ng-hide="readonly")
@@ -40,5 +42,4 @@ div.molecule-form-save
       input.atom-button-cancelar(type="button", value="Cancelar", data-ng-click="cancel()", data-ng-hide="isCadastro()")
 include ../../main/views/modal
 div.default-link
-  a(data-ng-href='{{systemUri.getHome()}}') Voltar
 div {{status}}

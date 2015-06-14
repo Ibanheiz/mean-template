@@ -13,3 +13,24 @@ input[type=radio]
 
 .container-documento
   position relative
+
+.odd-row
+  background #fff
+  color #333
+  height 40px
+  transition(all, 0.4s, linear)
+
+.even-row
+  @extends .odd-row
+  gradient-linear(#eee, #f4f4f4)
+  transition(all, 0.4s, linear)
+
+.empty-message
+  width 80%
+  height 60px
+  margin -10px 0 10px 10px
+  line-height 45px
+  text-align center
+
+  @media (min-width $tablet-size)
+    width 55%

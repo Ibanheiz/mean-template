@@ -11,9 +11,11 @@
     return deferred.promise;
   }
   var auth = {
-    checkLoggedin: ['$q', '$http', '$location', 'systemUri', function ($q, $http, $location, systemUri) {
+    checkLoggedin: ['$q', '$http', '$location', '$cookieStore', 'systemUri',
+      function ($q, $http, $location, $cookieStore, systemUri) {
       checkUser($q, $http, function (deferred, user) {
         if (user !== '0') {
+          $cookieStore.put('user', user);
           deferred.resolve();
         } else {
           deferred.reject();
@@ -21,12 +23,14 @@
         }
       });
     }],
-    checkLoggedOut: ['$q', '$http', '$location', 'systemUri', function ($q, $http, $location, systemUri) {
+    checkLoggedOut: ['$q', '$http', '$location', '$cookieStore', 'systemUri',
+      function ($q, $http, $location, $cookieStore, systemUri) {
       checkUser($q, $http, function (deferred, user) {
         if (user !== '0') {
           deferred.reject();
           $location.url(systemUri.getHome());
         } else {
+          $cookieStore.remove('user');
           deferred.resolve();
         }
       });
@@ -97,7 +101,7 @@
     $locationProvider.html5Mode(true);
   }
 
-  function run ($rootScope, systemUri) {
+  function run($rootScope, systemUri) {
     $rootScope.systemUri = systemUri;
   }
 
@@ -114,6 +118,8 @@
     'ngAnimate',
     'ngSanitize',
     'ngRoute',
+    'ngMask',
+    'ngCookies',
     'ngResource'
   ])
     .config(routerConfig)
