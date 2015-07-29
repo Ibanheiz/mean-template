@@ -4,7 +4,7 @@
   "description": "Projeto base configurado para novos projetos com MEAN",
   "main": "back/bin/www",
   "scripts": {
-    "prestart": "gulp dev",
+    "prestart": "gulp run",
     "start": "node back/bin/www",
     "debug": "node-debug --web-port=7070 back/bin/www",
     "pretest": "npm install",
