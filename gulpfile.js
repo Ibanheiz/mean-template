@@ -1,63 +1,16 @@
-var gulp = require('gulp');
-var modularGulp = require('gulp-modular-tasks')(gulp);
+'use strict';
 
-var styleFiles = 'front/css/stylus/*.styl',
-  styleFilesModules = 'front/css/stylus/**/*.styl',
-  jsFiles = [
-    'front/js/*.js',
-    'front/js/modules/**/*.js'
-  ],
-  jsComponents = [
-    'front/components/**/angular.min.js',
-    'front/components/**/*min.js',
-    'front/components/**/dist/*min.js'
-  ],
-  jsComponentsMaps = [
-    'front/components/**/*min.js.map',
-  ];
+/*
+ * gulpfile.js
+ * ===========
+ * Rather than manage one giant configuration file responsible
+ * for creating multiple tasks, each task has been broken out into
+ * its own file in gulp/tasks. Any file in that folder gets automatically
+ * required by the loop in ./gulp/index.js (required below).
+ *
+ * To add a new task, simply add a new task file to gulp/tasks.
+ */
 
-// Files e tasks para o livereload
-var watchers = [
-  {
-    file: jsFiles,
-    task: 'minify-concat:js'
-  },
-  {
-    file: styleFiles,
-    task: 'build:stylus'
-  },
-  {
-    file: styleFilesModules,
-    task: 'build:stylus'
-  }
-];
+global.isProd = false;
 
-// Compila Stylus e concatena o css
-gulp.task('build:stylus', modularGulp.createTask('stylus', styleFiles, 'front/css'));
-
-// Verifica a qualidade do código js utilizando o Lint js
-gulp.task('lint', modularGulp.createTask('lint', jsFiles));
-
-// Minifica e concatena todos os js da aplicação
-gulp.task('minify-concat:js', ['lint'], modularGulp.createTask('minify-concat', jsFiles, 'all.min.js', 'front/js/min'));
-
-// Concate todas as libs minifcadas baixadas pelo bower
-gulp.task('bower-concat', ['copy-bower-map'], modularGulp.createTask('concat', jsComponents, 'components.min.js', 'front/js/min'));
-
-// Copia os maps das libs minificadas baixadas pelo bower
-gulp.task('copy-bower-map', modularGulp.createTask('copy', jsComponentsMaps, 'front/js/min'));
-
-// Ativa o nodemon
-gulp.task('nodemon', modularGulp.createTask('nodemon', 'back/bin/www'));
-
-// Ativa o liveloread e cria watchers para as pages em jade
-gulp.task('livereload', modularGulp.createTask('watch', watchers, 'back/modules/**/views/*.jade'));
-
-// Optimiza as imagens
-gulp.task('imageopt', modularGulp.createTask('imageopt', 'front/image/original/*.*', 'front/image'));
-
-// Roda os testes criados com o jasmine
-gulp.task('jasmine', modularGulp.createTask('jasmine', 'back/test/*Spec.js', 'test'));
-
-// Roda com o comando 'gulp' no prestart da aplicação
-gulp.task('default', ['build:stylus', 'minify-concat:js', 'bower-concat', 'copy-bower-map', 'nodemon', 'livereload']);
+require('./gulp');

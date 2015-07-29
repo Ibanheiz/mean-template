@@ -10,8 +10,6 @@ var server = app.listen(app.get('port'), function() {
   console.log('Express Https Server '+ config.address + ' (' + config.env + ') escutando na porta ' + config.port);
 });
 
-server.setMaxListeners(0);
-
 process.on('SIGTERM',  function (err) {
   process.exit(1);
 });
