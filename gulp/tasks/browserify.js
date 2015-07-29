@@ -28,9 +28,9 @@ function buildScript(file) {
     fullPaths: true
   }, watchify.args);
 
-  if ( !global.isProd ) {
+  if (!global.isProd) {
     bundler = watchify(bundler);
-    bundler.on('update', function() {
+    bundler.on('update', function () {
       rebundle();
     });
   }
@@ -43,7 +43,7 @@ function buildScript(file) {
     'bulkify'
   ];
 
-  transforms.forEach(function(transform) {
+  transforms.forEach(function (transform) {
     bundler.transform(transform);
   });
 
@@ -69,7 +69,7 @@ function buildScript(file) {
 
 }
 
-gulp.task('browserify', function() {
+gulp.task('browserify', function () {
 
   return buildScript('main.js');
 

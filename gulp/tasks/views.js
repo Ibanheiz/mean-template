@@ -3,19 +3,9 @@
 var config         = require('../config');
 var gulp           = require('gulp');
 var templateCache  = require('gulp-angular-templatecache');
+var browserSync  = require('browser-sync');
 
 // Views task
-gulp.task('views', function() {
-
-  // Put our index.html in the dist folder
-  gulp.src('app/index.html')
-    .pipe(gulp.dest(config.dist.root));
-
-  // Process any other view files from app/views
-  return gulp.src(config.views.src)
-    .pipe(templateCache({
-      standalone: true
-    }))
-    .pipe(gulp.dest(config.views.dest));
-
+gulp.task('views', function () {
+  browserSync.reload();
 });

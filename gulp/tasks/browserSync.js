@@ -4,14 +4,16 @@ var config      = require('../config');
 var browserSync = require('browser-sync');
 var gulp        = require('gulp');
 
-gulp.task('browserSync', function() {
-
+gulp.task('browserSync', function () {
   browserSync({
-  	port: config.browserPort,
-  	ui: {
-    	port: config.UIPort
+    port: config.browserPort,
+    ui: {
+      port: config.UIPort
     },
-    proxy: 'localhost:' + config.serverPort
+    proxy: 'localhost:' + config.serverPort,
+    options: {
+      browser: 'google chrome'
+    }
   });
 
 });

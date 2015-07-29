@@ -4,12 +4,11 @@ var config = require('../config');
 var gulp   = require('gulp');
 var nodemon = require('gulp-nodemon');
 
-gulp.task('nodemon', ['browserSync'], function(cb) {
+gulp.task('nodemon', function () {
   return nodemon({
-        script: 'back/bin/www',
-        ext: 'js',
-        env: { 'NODE_ENV': 'development' }
-      });
-
+    script: 'back/bin/www',
+    ext: 'js',
+    env: { 'NODE_ENV': 'development' }
+  });
 });
 

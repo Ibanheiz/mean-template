@@ -9,7 +9,6 @@ var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
 
 gulp.task('styles', function () {
-
   return gulp.src(config.styles.src)
     .pipe(stylus())
     .pipe(minifyCss({keepBreaks: false}))

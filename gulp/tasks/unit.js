@@ -4,7 +4,7 @@ var gulp   = require('gulp');
 var karma  = require('gulp-karma');
 var config = require('../config');
 
-gulp.task('unit', ['views'], function() {
+gulp.task('unit', ['views'], function () {
 
   // Nonsensical source to fall back to files listed in karma.conf.js,
   // see https://github.com/lazd/gulp-karma/issues/9
@@ -13,7 +13,7 @@ gulp.task('unit', ['views'], function() {
       configFile: config.test.karma,
       action: 'run'
     }))
-    .on('error', function(err) {
+    .on('error', function (err) {
       // Make sure failed tests cause gulp to exit non-zero
       throw err;
     });
