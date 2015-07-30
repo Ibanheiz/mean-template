@@ -1,4 +1,4 @@
-(function (angular) {
+/*(function (angular) {
   'use strict';
 
   function modalDialog() {
@@ -49,3 +49,4 @@
     .directive('modalDialog', modalDialog);
 
 }(angular));
+*/

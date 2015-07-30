@@ -44,8 +44,8 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./front/js/main.js'],
-    'bundleName': 'main.js',
+    'entries'   : ['./front/js/app.js'],
+    'bundleName': 'app.js',
     'sourcemap' : true
   },
 

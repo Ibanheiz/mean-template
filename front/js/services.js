@@ -1,4 +1,4 @@
-(function (angular) {
+/*(function (angular) {
   'use strict';
 
   angular.module('app.services',
@@ -7,3 +7,4 @@
       'app.modules.Login.services'
     ]);
 }(angular));
+*/

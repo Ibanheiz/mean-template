@@ -1,37 +1,38 @@
-(function (angular) {
+/*(function (angular) {
   'use strict';
 
-  function systemUri(systemUriConfig) {
+  function systemUri(SystemUriConfig) {
     return {
       getHome: function () {
-        return systemUriConfig.getHome;
+        return SystemUriConfig.getHome;
       },
       getLogin: function () {
-        return systemUriConfig.getLogin;
+        return SystemUriConfig.getLogin;
       },
       getSignup: function () {
-        return systemUriConfig.getSignup;
+        return SystemUriConfig.getSignup;
       },
       getCreateClient: function () {
-        return systemUriConfig.getCreateClient;
+        return SystemUriConfig.getCreateClient;
       },
       getEditClient: function (id) {
-        return systemUriConfig.getEditClient.replace(':id', id);
+        return SystemUriConfig.getEditClient.replace(':id', id);
       },
       getRemoveClient: function (id) {
-        return systemUriConfig.getRemoveClient.replace(':id', id);
+        return SystemUriConfig.getRemoveClient.replace(':id', id);
       },
       getUser: function () {
-        return systemUriConfig.getUser;
+        return SystemUriConfig.getUser;
       },
       get404: function () {
-        return systemUriConfig.get404;
+        return SystemUriConfig.get404;
       }
     };
   }
 
-  systemUri.$inject = ['systemUriConfig'];
+  systemUri.$inject = ['SystemUriConfig'];
 
   angular.module('app.factorys', [])
     .factory('systemUri', systemUri);
 }(angular));
+*/
