@@ -3,11 +3,11 @@
 var angular           = require('angular');
 var bulk              = require('bulk-require');
 var loginModules = [
-  'app.Login.controllers',
-  'app.Login.services',
-  'app.Login.factories'
+  'app.Client.controllers',
+  'app.Client.services',
+  'app.Client.factories'
 ];
 
-module.exports = angular.module('app.Login', loginModules);
+module.exports = angular.module('app.Client', loginModules);
 
 bulk(__dirname, ['./**/!(*_index|*.spec).js']);

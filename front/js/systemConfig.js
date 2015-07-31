@@ -8,6 +8,7 @@ function checkUser($q, $http, cb) {
   });
   return deferred.promise;
 }
+
 var auth = {
   checkLoggedin: ['$q', '$http', '$location', '$cookieStore', 'systemUri',
     function ($q, $http, $location, $cookieStore, systemUri) {
@@ -98,7 +99,5 @@ function routerConfig($routeProvider, $locationProvider, SystemUriConfig) {
     });
   $locationProvider.html5Mode(true);
 }
-
-routerConfig.$inject = ['$routeProvider', '$locationProvider', 'SystemUriConfig'];
 
 module.exports = routerConfig;

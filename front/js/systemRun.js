@@ -4,4 +4,4 @@ function run($rootScope, systemUri) {
   $rootScope.systemUri = systemUri;
 }
 
-run.$inject = ['$rootScope', 'systemUri'];
+module.exports = run;

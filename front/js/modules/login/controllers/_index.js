@@ -2,5 +2,5 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('app.login.controllers', []);
+module.exports = angular.module('app.Login.controllers', []);
 

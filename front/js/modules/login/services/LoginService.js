@@ -14,6 +14,4 @@ function LoginService($http) {
   };
 }
 
-LoginService.$inject = ['$http'];
-
 servicesModule.service('LoginService', LoginService);

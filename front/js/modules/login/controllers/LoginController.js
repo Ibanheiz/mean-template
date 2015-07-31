@@ -1,26 +1,26 @@
-module.exports = function (_login) {
+'use strict';
 
-  function LoginController($scope, $http, $timeout, $location, LoginService) {
-    $scope.showModal = false;
+var controllersModule = require('./_index');
 
-    $scope.login = function (user) {
-      LoginService.login(user).then(function (data) {
-        _login.cbValidateLogin(data, $scope, $timeout, $location, $scope.systemUri);
-      }, function (err) {
-        _login.cbError('Erro ao efetuar Login.', err, $scope);
-      });
-    };
+function LoginController($scope, $http, $timeout, $location, LoginService, LoginMessages) {
+  $scope.showModal = false;
 
-    $scope.signout = function () {
-      LoginService.signout().then(function (data) {
-        $location.url($scope.systemUri.getLogin());
-      }, function (err) {
-        _login.cbError('Erro ao efetuar logout.', err, $scope);
-      });
-    };
-  }
+  $scope.login = function (user) {
+    LoginService.login(user).then(function (data) {
+      LoginMessages.cbValidateLogin(data, $scope, $timeout, $location, $scope.systemUri);
+    }, function (err) {
+      LoginMessages.cbError('Erro ao efetuar Login.', err, $scope);
+    });
+  };
 
-  LoginController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService'];
-
-  return LoginController;
+  $scope.signout = function () {
+    LoginService.signout().then(function (data) {
+      $location.url($scope.systemUri.getLogin());
+    }, function (err) {
+      LoginMessages.cbError('Erro ao efetuar logout.', err, $scope);
+    });
+  };
 }
+
+controllersModule.controller('LoginController', LoginController);
+

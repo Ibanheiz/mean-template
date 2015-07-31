@@ -1,23 +1,22 @@
-module.exports = function(_login) {
+'use strict';
 
-  function SignupController($scope, $http, $timeout, $location, LoginService) {
-    $scope.showModal = false;
+var controllersModule = require('./_index');
 
-    $scope.createUser = function (user) {
-      if (_login.validatePassword(user)) {
-        LoginService.create(user).then(function (data) {
-          _login.cbCreateSucess(data, $scope, $timeout, $location, $scope.systemUri);
-        }, function (err) {
-          _login.cbError('Erro ao criar o usuário.', err, $scope);
-        });
-      } else {
-        $scope.message = "Senha diferente da confirmação";
-        _login.showModal($scope, $timeout);
-      }
-    };
-  }
+function SignupController($scope, $http, $timeout, $location, LoginService, LoginMessages) {
+  $scope.showModal = false;
 
-  SignupController.$inject = ['$scope', '$http', '$timeout', '$location', 'LoginService'];
-
-  return SignupController;
+  $scope.createUser = function (user) {
+    if (LoginMessages.validatePassword(user)) {
+      LoginService.create(user).then(function (data) {
+        LoginMessages.cbCreateSucess(data, $scope, $timeout, $location, $scope.systemUri);
+      }, function (err) {
+        LoginMessages.cbError('Erro ao criar o usuário.', err, $scope);
+      });
+    } else {
+      $scope.message = "Senha diferente da confirmação";
+      LoginMessages.showModal($scope, $timeout);
+    }
+  };
 }
+
+controllersModule.controller('SignupController', SignupController);
