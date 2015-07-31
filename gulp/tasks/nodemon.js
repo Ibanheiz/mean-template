@@ -6,10 +6,10 @@ var nodemon = require('gulp-nodemon');
 
 gulp.task('nodemon', function () {
   return nodemon({
-    script: 'back/bin/www',
-    ext: 'js',
-    env: { 'NODE_ENV': 'development' },
-    watch: 'back/**'
+    script: config.nodemon.script,
+    ext: config.nodemon.ext,
+    env: { 'NODE_ENV': config.nodemon.env },
+    watch: config.nodemon.watch
   });
 });
 

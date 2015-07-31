@@ -13,6 +13,13 @@ module.exports = {
     'views' : 'back/modules/**/views/*.jade'
   },
 
+  'nodemon': {
+    'script': 'back/bin/www',
+    'ext': 'js',
+    'env': 'development',
+    'watch': 'back/'
+  },
+
   'styles': {
     'src' : 'front/css/stylus/*.styl',
     'dest': 'front/build/css'
