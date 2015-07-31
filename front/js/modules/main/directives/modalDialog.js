@@ -10,7 +10,7 @@ function modalDialog() {
     },
     replace: true,
     transclude: true,
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       // Gambis para não mostrar modal ao carregar a tela
       setTimeout(function () {
         element.removeAttr('style');

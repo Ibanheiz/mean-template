@@ -8,7 +8,8 @@ gulp.task('nodemon', function () {
   return nodemon({
     script: 'back/bin/www',
     ext: 'js',
-    env: { 'NODE_ENV': 'development' }
+    env: { 'NODE_ENV': 'development' },
+    watch: 'back/**'
   });
 });
 

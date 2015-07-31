@@ -14,7 +14,7 @@ function LoginController($scope, $http, $timeout, $location, LoginService, Login
   };
 
   $scope.signout = function () {
-    LoginService.signout().then(function (data) {
+    LoginService.signout().then(function () {
       $location.url($scope.systemUri.getLogin());
     }, function (err) {
       LoginMessages.cbError('Erro ao efetuar logout.', err, $scope);
