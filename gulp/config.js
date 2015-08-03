@@ -51,14 +51,16 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./front/js/app.js'],
+    'entries'   : ['front/js/app.js'],
     'bundleName': 'app.js',
     'sourcemap' : true
   },
 
   'test': {
-    'karma': 'test/karma.conf.js',
-    'protractor': 'test/protractor.conf.js'
+    'source': [
+      'front/js/test/modules/**/*Spec.js',
+      'back/test/modules/**/*Spec.js'
+    ]
   }
 
 };

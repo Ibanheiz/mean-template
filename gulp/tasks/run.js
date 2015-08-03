@@ -19,9 +19,6 @@ gulp.task('run', ['clean'], function (cb) {
 
     break;
 
-  case 'test':
-    return runSequence('unit', 'protractor');
-
   default:
     console.log('**************************************');
     console.log('********* NODE_ENV undefined *********');

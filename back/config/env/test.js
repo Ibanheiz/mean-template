@@ -1,5 +1,5 @@
 module.exports = {
-	env: 'development',
+	env: 'test',
 	db: 'mongodb://localhost/mean-seed-test',
 	port: 3000,
 	address: 'localhost',

@@ -1,10 +1,11 @@
 (function () {
-  require('jasmine-expect');
-  var should = require('should');
-  var config = require('./../config/config')();
+  var chai = require('chai');
+  var should = chai.should;
+  var expect = chai.expect;
+  var config = require('./../../../config/config')();
   var mongoose = require('mongoose');
-  var Client = require('../modules/client/model')(mongoose);
-  var _controller = require('../modules/client/api/controller')(Client);
+  var Client = require('../../../modules/client/model')(mongoose);
+  var _controller = require('../../../modules/client/api/controller')(Client);
   var clients, req, res, aleatorio = {};
 
   describe("Clients", function () {
@@ -22,7 +23,7 @@
       it('Buscar todos os Clientes', function (done) {
         var cb = function (err, data, res) {
           clients = data;
-          expect(data[0]).toBeDefined();
+          expect(data[0]).to.not.be.undefined;
           done();
         };
 
@@ -35,7 +36,7 @@
         var find_Id = clients[0]._id.toString();
 
         var cb = function (err, data, res) {
-          expect(data._id.toString()).toEqual(find_Id);
+          expect(data._id.toString()).to.equal(find_Id);
           done();
         };
 
@@ -52,7 +53,7 @@
     describe("save()", function () {
       it('Cadastrar um Cliente', function (done) {
         var cb = function (err, data, res) {
-          expect(data._id.toString().length).toBeGreaterThan(0);
+          expect(data._id.toString()).to.have.length.above(0);
           done();
         };
 
@@ -69,7 +70,7 @@
     describe("update()", function () {
       it('Alterar um Cliente', function (done) {
         var cb = function (err, data, res) {
-          expect(data).toEqual(1);
+          expect(data.ok).to.equal(1);
           done();
         };
 
@@ -89,7 +90,7 @@
     describe("remove()", function () {
       it('Remover um Cliente', function (done) {
         var cb = function (err, data, res) {
-          expect(data).toEqual(1);
+          expect(data.result.ok).to.equal(1);
           done();
         };
 
