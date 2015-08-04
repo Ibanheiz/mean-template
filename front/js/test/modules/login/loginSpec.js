@@ -4,10 +4,15 @@ var dom = require('jsdom');
 var chai = require('chai');
 var should = chai.should();
 var jsdom = require('jsdom')
+require('./../../testHelper')
 
+
+require('angular-mocks');
 
 describe('Formulário de Login', function() {
+
   it('Validações', function (done) {
+
     this.timeout(5000);
     jsdom.env({
       file: __dirname + '/../../templates/login/views/login.html',
@@ -30,9 +35,17 @@ describe('Formulário de Login', function() {
         }
         var botaoLogin = $('input[type=submit]');
         var username = $('input[name=username]');
+        var password = $('input[name=password]');
+
+        username.value = 'ibanheiz';
+        trigger(username, 'change');
+        password.value = '123';
+        trigger(password, 'change');
+
         botaoLogin.click();
 
-        (1+2).should.equal(3);
+        // usar should na verificação da mensagem no angular
+
         done();
       }
     });
