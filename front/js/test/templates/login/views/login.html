@@ -1,0 +1,26 @@
+
+<h1 class="atom-title-page">Efetuar Login</h1>
+<div>
+  <form name="form_login" data-ng-submit="login(user)" class="molecule-form-login">
+    <div>
+      <label for="username" class="atom-label-login">Usuário</label>
+    </div>
+    <div>
+      <input type="text" name="username" data-ng-model="user.username" required="required" class="atom-input-login"/>
+    </div>
+    <div>
+      <label for="password" class="atom-label-login">Senha</label>
+    </div>
+    <div>
+      <input type="password" name="password" data-ng-model="user.password" required="required" class="atom-input-login"/>
+    </div>
+    <div class="atom-grid-between">
+      <input type="submit" value="Entrar" class="atom-button-login"/>
+      <div><a data-ng-href="{{systemUri.getSignup()}}" class="atom-link-login">Cadastre-se</a></div>
+    </div>
+  </form>
+</div>
+<modal-dialog show="showModal">
+  <div>{{message}}</div>
+</modal-dialog>
+<div>{{status}}</div>

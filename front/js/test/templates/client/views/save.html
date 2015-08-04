@@ -1,0 +1,54 @@
+
+<h1 class="atom-title-page">{{title}}</h1>
+<div class="molecule-form-save">
+  <form name="form_cliente" data-ng-submit="save(client)">
+    <div>
+      <label for="razaoSocial" class="atom-label-save">Razão Social</label>
+    </div>
+    <div>
+      <input type="text" name="razaoSocial" data-ng-model="client.razaoSocial" data-ng-disabled="readonly" required="required" minlength="5" maxlength="50" class="atom-input-save"/>
+    </div>
+    <div class="container-documento">
+      <div class="radio-container">
+        <input type="radio" data-ng-model="client.pessoa" value="fisica" data-ng-click="resetCpfCnpj()" data-ng-disabled="readonly"/>
+        <label for="pessoa" class="atom-label-save">Física</label>
+        <input type="radio" data-ng-model="client.pessoa" value="juridica" data-ng-click="resetCpfCnpj()" data-ng-disabled="readonly"/>
+        <label for="pessoa" class="atom-label-save">Jurídica</label>
+      </div>
+      <div data-ng-hide="!isPessoaFisica()">
+        <div>
+          <label for="cpf" class="atom-label-save">CPF</label>
+        </div>
+        <div>
+          <input type="text" name="cpf" data-ng-model="client.cpf" data-ng-disabled="readonly" data-ng-required="isPessoaFisica()" data-mask="999.999.999-99" data-clean="true" class="atom-input-save"/>
+        </div>
+      </div>
+      <div data-ng-hide="isPessoaFisica()">
+        <div>
+          <label for="cnpj" class="atom-label-save">CNPJ</label>
+        </div>
+        <div>
+          <input type="text" name="cnpj" data-ng-model="client.cnpj" data-ng-disabled="readonly" data-ng-required="!isPessoaFisica()" data-mask="99.999.999/9999-99" data-clean="true" class="atom-input-save"/>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label for="telefone" class="atom-label-save">Telefone</label>
+    </div>
+    <div>
+      <input type="tel" name="telefone" data-ng-disabled="readonly" data-ng-model="client.telefone" required="required" mask="(99) 9999-9999" data-clean="true" class="atom-input-save"/>
+    </div>
+    <div data-ng-hide="!readonly" pattern="">
+      <input type="button" value="Editar" data-ng-click="edit()" class="atom-button-edit"/>
+    </div>
+    <div data-ng-hide="readonly" class="atom-grid-between">
+      <input type="submit" value="Salvar" class="atom-button-salvar"/>
+      <input type="button" value="Cancelar" data-ng-click="cancel()" data-ng-hide="isCadastro()" class="atom-button-cancelar"/>
+    </div>
+  </form>
+</div>
+<modal-dialog show="showModal">
+  <div>{{message}}</div>
+</modal-dialog>
+<div class="default-link"></div>
+<div>{{status}}</div>

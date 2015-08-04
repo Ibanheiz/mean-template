@@ -1,0 +1,37 @@
+
+<h1 class="atom-title-page">Cadastre-se no Mean Seed</h1>
+<div>
+  <form name="form_signup" data-ng-submit="createUser(user)" class="molecule-form-sigup">
+    <div>
+      <label for="username" class="atom-label-sigup">Usuário</label>
+    </div>
+    <div>
+      <input type="text" name="username" data-ng-model="user.username" required="required" class="atom-input-sigup"/>
+    </div>
+    <div>
+      <label for="email" class="atom-label-sigup">Email</label>
+    </div>
+    <div>
+      <input type="email" name="email" data-ng-model="user.email" required="required" class="atom-input-sigup"/>
+    </div>
+    <div>
+      <label for="password" class="atom-label-sigup">Senha</label>
+    </div>
+    <div>
+      <input type="password" name="password" data-ng-model="user.password" required="required" class="atom-input-sigup"/>
+    </div>
+    <div>
+      <label for="confirmPassword" class="atom-label-sigup">Confirmar senha</label>
+    </div>
+    <div>
+      <input type="password" name="confirmPassword" data-ng-model="user.confirmPassword" required="required" class="atom-input-sigup"/>
+    </div>
+    <div class="button-container-signup">
+      <input type="submit" value="Cadastrar" class="atom-button-sigup"/>
+    </div>
+  </form>
+</div>
+<modal-dialog show="showModal">
+  <div>{{message}}</div>
+</modal-dialog>
+<div>{{status}}</div>

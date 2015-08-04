@@ -20,6 +20,9 @@
   "globals": {
     "angular": true,
     "alert": true,
-    "confirm": true
+    "confirm": true,
+    "should": true,
+    "expect": true,
+    "assert": true
   }
 }

@@ -1,0 +1,16 @@
+
+<header class="organism-header">
+  <div class="atom-title-header">MEAN-Seed</div>
+  <div data-ng-controller="MainController" data-ng-show="isAuthenticated()" data-toggle-component="data-toggle-component" data-target-id="menu-principal" class="icon-menu"><img src="image/menu.png" alt="Menu"/>
+    <div>MENU</div>
+  </div>
+</header>
+<div data-ng-controller="MainController" data-ng-show="isAuthenticated()">
+  <nav class="organism-simple-nav">
+    <ul id="menu-principal" class="molecule-ul-nav">
+      <li class="atom-li-nav"><a data-ng-href="{{systemUri.getHome()}}" data-toggle-component="data-toggle-component" data-target-id="menu-principal" class="atom-link-nav">Clientes</a></li>
+      <li class="atom-li-nav"><a href="#" data-toggle-component="data-toggle-component" data-target-id="menu-principal" class="atom-link-nav">Usuários</a></li>
+      <li class="atom-li-nav"><a href="#" data-ng-controller="LoginController" data-ng-click="signout()" data-toggle-component="data-toggle-component" data-target-id="menu-principal" class="atom-link-nav">Sair</a></li>
+    </ul>
+  </nav>
+</div>

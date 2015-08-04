@@ -7,7 +7,7 @@ module.exports = {
   'serverPort'   : 3000,
 
   'watch': {
-    'scripts' : ['front/js/**/*.js', 'front/js/**/**/*.js'],
+    'scripts' : ['front/js/modules/*.js', 'front/js/moules/**/*.js'],
     'styles' : ['front/css/stylus/*.styl', 'front/css/stylus/**/**/*.styl'],
     'image' : 'front/image/*',
     'views' : 'back/modules/**/views/*.jade'
@@ -60,7 +60,11 @@ module.exports = {
     'source': [
       'front/js/test/modules/**/*Spec.js',
       'back/test/modules/**/*Spec.js'
-    ]
+    ],
+    'jade': {
+      'source': 'back/modules/**/views/*.jade',
+      'dest': 'front/js/test/templates'
+    }
   }
 
 };

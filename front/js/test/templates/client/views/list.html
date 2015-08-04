@@ -1,0 +1,30 @@
+
+<h1 class="atom-title-page">Clientes</h1>
+<div>
+  <table class="organism-simple-table">
+    <thead>
+      <tr class="molecule-tr-thead">
+        <th class="atom-th-thead">Razão Social</th>
+        <th class="atom-th-thead">CPF / CNPJ</th>
+        <th class="atom-th-thead">Telefone</th>
+        <th class="atom-th-thead">Data de Cadastro</th>
+        <th class="atom-th-thead atom-th-small">Editar</th>
+        <th class="atom-th-thead atom-th-small">Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="client in clients" data-ng-class="{'odd-row': $index % 2 == 1, 'even-row': $index % 2 == 0}" class="molecule-tr-tbody">
+        <td class="atom-td-tbody">{{client.razaoSocial}}</td>
+        <td data-ng-hide="!client.cpf" class="atom-td-tbody">{{client.cpf}}</td>
+        <td data-ng-hide="!client.cnpj" class="atom-td-tbody">{{client.cnpj}}</td>
+        <td class="atom-td-tbody">{{client.telefone}}</td>
+        <td class="atom-td-tbody">{{client.data | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td class="atom-td-tbody atom-td-small"><a data-ng-href="{{systemUri.getEditClient(client._id)}}"><img src="./image/icon-edit.png" alt="Editar" title="Editar Cliente" width="22" height="22"/></a></td>
+        <td class="atom-td-tbody atom-td-small"><span data-ng-controller="ClientRemoveController" style="cursor: pointer"><a data-ng-click="remove(client)"><img src="./image/icon-remove.png" alt="Remover" title="Remover Cliente" width="22" height="22"/></a></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div data-ng-hide="clients.length &gt; 0" class="empty-message">Não há Clientes cadastrados</div>
+</div>
+<div class="atom-button-novo"><a data-ng-href="{{systemUri.getCreateClient()}}" class="atom-link-button">Novo</a></div>
+<div>{{status}}</div>
