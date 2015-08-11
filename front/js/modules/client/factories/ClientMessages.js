@@ -37,14 +37,6 @@ function MessageFactory() {
     cbRemoveSucess: function (client, $scope) {
       $scope.message = 'Cliente ' + client.razaoSocial + ' removido com sucesso';
     },
-    findClienteById: function (service, $scope, $routeParams) {
-      var id = $routeParams.id;
-      service.findOneById(id).then(function (data) {
-        messages.cbShowSucess(data, $scope);
-      }, function (err) {
-        messages.cbError('Erro ao exibir o Cliente: ', err, $scope);
-      });
-    },
     cbError: function (message, error, $scope) {
       console.log(error);
       $scope.status = message + error.message;

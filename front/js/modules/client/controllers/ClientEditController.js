@@ -7,7 +7,12 @@ function ClientEditController($scope, $routeParams, $timeout, ClientService, Cli
   $scope.readonly = true;
   $scope.showModal = false;
 
-  ClientMessages.findClienteById(service, $scope, $routeParams);
+  var id = $routeParams.id;
+  service.findOneById(id).then(function (data) {
+    ClientMessages.cbShowSucess(data, $scope);
+  }, function (err) {
+    ClientMessages.cbError('Erro ao exibir o Cliente: ', err, $scope);
+  });
 
   $scope.save = function (client) {
     service.update(client).then(function () {
