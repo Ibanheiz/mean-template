@@ -2,6 +2,9 @@
 
 var servicesModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 function LoginService($http) {
   this.create = function (data) {
     return $http.post('api/login/signup', data);

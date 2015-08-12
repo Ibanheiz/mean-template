@@ -2,6 +2,9 @@
 
 var controllerModules = require('./_index');
 
+/**
+ * @ngInject
+ */
 function ClientEditController($scope, $routeParams, $timeout, ClientService, ClientMessages) {
   var service = ClientService;
   $scope.readonly = true;

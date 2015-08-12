@@ -2,6 +2,9 @@
 
 var servicesModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 function ClientService($http) {
   var url = 'api/client';
 

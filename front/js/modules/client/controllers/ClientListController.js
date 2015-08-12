@@ -2,6 +2,9 @@
 
 var controllerModules = require('./_index');
 
+/**
+ * @ngInject
+ */
 function ClientListController($scope, ClientService, ClientMessages) {
   ClientService.findAll().then(function (data) {
     ClientMessages.cbFindAllSucess(data, $scope);

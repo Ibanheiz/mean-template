@@ -2,6 +2,9 @@
 
 var factoriesModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 function MessageFactory() {
   var messages = {
     cbCreateSucess: function (data, $scope, $timeout, $location, systemUri) {

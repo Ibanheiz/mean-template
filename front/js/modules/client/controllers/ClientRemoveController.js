@@ -2,6 +2,9 @@
 
 var controllerModules = require('./_index');
 
+/**
+ * @ngInject
+ */
 function ClientRemoveController($scope, ClientService, ClientMessages) {
   $scope.remove = function (client) {
     if (confirm('Deseja realmente excluir o Cliente ' + client.razaoSocial + '?')) {

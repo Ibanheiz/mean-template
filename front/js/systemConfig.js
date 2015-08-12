@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @ngInject
+ */
 function checkUser($q, $http, cb) {
   var deferred = $q.defer();
   // Verifica se existe um usuário autenticado
@@ -36,6 +39,9 @@ var auth = {
     }]
 };
 
+/**
+ * @ngInject
+ */
 function routerConfig($routeProvider, $locationProvider, SystemUriConfig) {
   $routeProvider.
     when(SystemUriConfig.getLogin, {

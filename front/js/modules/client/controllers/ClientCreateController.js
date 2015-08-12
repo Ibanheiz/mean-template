@@ -2,6 +2,9 @@
 
 var controllerModules = require('./_index');
 
+/**
+ * @ngInject
+ */
 function ClientCreateController($scope, $timeout, ClientService, ClientMessages) {
   $scope.title = "Novo Cliente";
   $scope.client = {};

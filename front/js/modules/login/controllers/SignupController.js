@@ -2,6 +2,9 @@
 
 var controllersModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 function SignupController($scope, $http, $timeout, $location, LoginService, LoginMessages) {
   $scope.showModal = false;
 

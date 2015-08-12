@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @ngInject
+ */
 function run($rootScope, systemUri) {
   $rootScope.systemUri = systemUri;
 }

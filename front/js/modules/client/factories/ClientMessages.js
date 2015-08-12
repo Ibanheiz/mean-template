@@ -2,6 +2,9 @@
 
 var factoriesModule = require('./_index');
 
+/**
+ * @ngInject
+ */
 function MessageFactory() {
   var messages = {
     removeItem: function (arr, item) {
