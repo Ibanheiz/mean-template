@@ -11,6 +11,7 @@ require('angular-cookies');
 require('angular-resource');
 require('angular-sanitize');
 require('angular-animate');
+require('mask/dist/ngMask.min');
 
 var requires = [
   'app.Main',
@@ -20,6 +21,7 @@ var requires = [
   'ngAnimate',
   'ngSanitize',
   'ngCookies',
+  'ngMask',
   'ngResource'
 ];
 

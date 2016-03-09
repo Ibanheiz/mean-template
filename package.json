@@ -94,6 +94,7 @@
     "install": "^0.1.8",
     "jsdom": "^3.1.2",
     "jshint-stylish": "^2.0.1",
+    "mask": "git+https://github.com/candreoliveira/ngMask.git",
     "morgan": "^1.6.1",
     "npm": "^2.13.3",
     "run-sequence": "^1.1.2",
